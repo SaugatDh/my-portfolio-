@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
     <div class="hero-header">
@@ -25,16 +24,16 @@
                     </div>
                     <ul class="navlinks">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Resume</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#resume">Resume</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
             </header>
             <div class="container">
                 <div class="hero-pic">
-                    <img src="profile.png" alt="profile picture">
+                    <img src="assets/profile.png" alt="profile picture">
                 </div>
                 <div class="hero-text">
                     <h5>
@@ -43,16 +42,8 @@
                             <span id="element"></span>
                         </div>
                     </h5>
-                    <h1>
-                        Saugat Dhungana
-                    </h1>
-                    <p>
-                       
-                        <p>I'm a passionate full-stack developer with learning developing web applications. My expertise includes JavaScript, React, Node.js, and Python. I love solving complex problems and creating elegant, efficient solutions.</p>
-   
-                       
-
-                    </p>
+                    <h1>Saugat Dhungana</h1>
+                    <p>I'm a passionate full-stack developer with learning developing web applications. My expertise includes JavaScript, React, Node.js, and Python. I love solving complex problems and creating elegant, efficient solutions.</p>
                     <div class="btn-group">
                         <a href="/Files/cv.pdf" download="Saugat_Dhunana_CV.pdf" class="btn active">Download CV</a>
                         <a href="#contact" class="btn">Contact</a>
@@ -67,6 +58,243 @@
             </div>
         </div>
     </div>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="wrapper">
+            <h2 class="section-title">My Portfolio</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="app">Mobile Apps</button>
+                <button class="filter-btn" data-filter="design">UI/UX Design</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-card" data-title="E-Commerce Platform">
+                        <div class="portfolio-image">
+                            <img src="assets/ecommerce.jpg" alt="E-Commerce Platform">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>E-Commerce Platform</h3>
+                                    <p>A full-stack e-commerce solution with React and Node.js</p>
+                                    <div class="tech-stack">
+                                        <span>React</span>
+                                        <span>Node.js</span>
+                                        <span>MongoDB</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="#" class="btn-view" data-modal="project1">View Details</a>
+                                        <a href="#" class="btn-live">Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-card" data-title="Smart Home App">
+                        <div class="portfolio-image">
+                            <img src="assets/smart-home.jpg" alt="Smart Home App">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>Smart Home App</h3>
+                                    <p>Mobile app for controlling smart home devices</p>
+                                    <div class="tech-stack">
+                                        <span>React Native</span>
+                                        <span>Firebase</span>
+                                        <span>IoT</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="#" class="btn-view" data-modal="project2">View Details</a>
+                                        <a href="#" class="btn-live">Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-card" data-title="Smart Farm Dashboard">
+                        <div class="portfolio-image">
+                            <img src="assets/smart-farm.jpg" alt="Smart Farm Dashboard">
+                            <div class="portfolio-overlay">
+                                <div class="overlay-content">
+                                    <h3>Smart Farm Dashboard</h3>
+                                    <p>UI/UX design for agricultural monitoring system</p>
+                                    <div class="tech-stack">
+                                        <span>Figma</span>
+                                        <span>Adobe XD</span>
+                                        <span>Photoshop</span>
+                                    </div>
+                                    <div class="portfolio-links">
+                                        <a href="#" class="btn-view" data-modal="project3">View Details</a>
+                                        <a href="#" class="btn-live">Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div id="project1" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>E-Commerce Platform</h2>
+                <p class="project-category">Web Development</p>
+            </div>
+            <div class="project-images">
+                <img src="assets/ecommerce-detail1.jpg" alt="E-Commerce Platform Detail 1">
+                <img src="assets/ecommerce-detail2.jpg" alt="E-Commerce Platform Detail 2">
+            </div>
+            <div class="project-details">
+                <h3>Project Overview</h3>
+                <p>A full-featured e-commerce platform with user authentication, product management, shopping cart, and payment integration. The platform includes advanced features like product filtering, search functionality, and order tracking.</p>
+                <h3>Technologies Used</h3>
+                <ul class="tech-list">
+                    <li>React.js</li>
+                    <li>Node.js</li>
+                    <li>MongoDB</li>
+                    <li>Express.js</li>
+                    <li>Redux</li>
+                    <li>Stripe API</li>
+                </ul>
+                <div class="project-links">
+                    <a href="#" class="btn">View Live</a>
+                    <a href="#" class="btn">Source Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+        <div class="wrapper">
+            <h2 class="section-title">My Resume</h2>
+            <div class="resume-content">
+                <div class="education">
+                    <h3>Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>Bachelor's in Computer Science</h4>
+                            <p class="institution">Your University</p>
+                            <p class="year">2020 - 2024</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience">
+                    <h3>Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>Full Stack Developer</h4>
+                            <p class="company">Company Name</p>
+                            <p class="year">2023 - Present</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills">
+                    <h3>Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <span data-percent="90%">JavaScript</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-percent="85%">React</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-percent="80%">Node.js</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-percent="75%">Python</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="wrapper">
+            <h2 class="section-title">Latest Blog Posts</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <img src="assets/blog1.jpg" alt="Blog 1">
+                    <div class="blog-content">
+                        <h3>Web Development Trends 2024</h3>
+                        <p class="date">April 10, 2024</p>
+                        <p>Exploring the latest trends in web development and what's coming next...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <img src="assets/blog2.jpg" alt="Blog 2">
+                    <div class="blog-content">
+                        <h3>Getting Started with React</h3>
+                        <p class="date">April 5, 2024</p>
+                        <p>A comprehensive guide for beginners starting their React journey...</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="wrapper">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>saugatdhungana746@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+977 9867565527</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Gauradaha, Jhapa</p>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="button" class="btn" id="sendEmailBtn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 Saugat Dhungana. All rights reserved.</p>
@@ -77,9 +305,8 @@
             </div>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js
-    "></script>
-    <script src="index.js"></script>
-   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
