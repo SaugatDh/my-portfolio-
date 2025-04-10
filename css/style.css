@@ -45,6 +45,7 @@ header{
     flex-wrap: wrap;
     padding: 20px 0;
     width: 100%;
+    
 }
 nav {
     position: relative;
@@ -55,20 +56,21 @@ nav {
     align-items: center;
 }
 .logo i{
-    height: 45px;
-    width: 45px;
+    height: 55px;
+    width: 55px;
     background-color: rgb(44, 120, 202);
     border-radius: 50%;
     color: #fff;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.5;
     padding: 10px;
     margin-right: 5px;
     cursor: pointer;
     text-align: center;
 }
 .logo i::before{
-    content: "S";
+    content: "SD";
 }
 .logo .logo-text{
     font-size: 24px;
@@ -372,11 +374,12 @@ nav .navlinks li a:hover::after {
         height: 35px;
         position: absolute;
         top: 50%;
-        right: 20px;
+        right: 0px;
         transform: translateY(-50%);
         z-index: 1000;
         cursor: pointer;
         margin-top: 0;
+        margin-right:0 ;
     }
 
     .logo {
@@ -391,6 +394,8 @@ nav .navlinks li a:hover::after {
         height: calc(100vh - 80px);
         background: rgba(34, 34, 34, 0.95);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+
         z-index: 999;
         display: flex;
         flex-direction: column;
@@ -490,6 +495,59 @@ nav .navlinks li a:hover::after {
     }
     .footer-social a {
         margin: 0 10px;
+    }
+}
+
+/* Combine these media queries into one */
+@media (max-width: 768px) {
+    /* Portfolio and Blog */
+    .portfolio-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Resume and Contact */
+    .resume-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+        padding: 20px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .contact-item {
+        padding: 15px;
+    }
+
+    .contact-item i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Logo */
+    .logo .logo-text {
+        display: none;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 15px 0;
     }
 }
 
@@ -642,14 +700,31 @@ nav .navlinks li a:hover::after {
     font-size: 0.95rem;
     transition: all 0.3s ease;
     font-weight: 500;
+    position: relative;
+    overflow: hidden;
 }
 
-.filter-btn:hover,
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: width 0.3s ease;
+}
+
+.filter-btn:hover::after {
+    width: 100%;
+}
+
 .filter-btn.active {
-    background: #007ced;
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 124, 237, 0.3);
+    color: #007bff;
+}
+
+.filter-btn.active::after {
+    width: 100%;
 }
 
 .portfolio-grid {
@@ -659,12 +734,24 @@ nav .navlinks li a:hover::after {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    transition: opacity 0.4s ease-out;
 }
 
 .portfolio-item {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.5s ease forwards;
+    transition: transform 0.4s ease-out, opacity 0.3s ease-in-out;
+}
+
+.portfolio-item.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.portfolio-item.visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .portfolio-card {
@@ -677,8 +764,7 @@ nav .navlinks li a:hover::after {
 }
 
 .portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 124, 237, 0.2);
+    transform: translateY(-5px);
 }
 
 .portfolio-image {
@@ -704,12 +790,12 @@ nav .navlinks li a:hover::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .portfolio-card:hover .portfolio-overlay {
@@ -720,11 +806,13 @@ nav .navlinks li a:hover::after {
     text-align: center;
     padding: 20px;
     transform: translateY(20px);
-    transition: all 0.3s ease;
+    opacity: 0;
+    transition: all 0.4s ease-out;
 }
 
 .portfolio-card:hover .overlay-content {
     transform: translateY(0);
+    opacity: 1;
 }
 
 .overlay-content h3 {
@@ -1240,7 +1328,7 @@ nav .navlinks li a:hover::after {
 
 .blog-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 124, 237, 0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     border-color: rgba(0, 124, 237, 0.3);
 }
 
@@ -1413,6 +1501,8 @@ nav .navlinks li a:hover::after {
     border-radius: 15px;
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+
 }
 
 .form-group {
@@ -1497,6 +1587,87 @@ nav .navlinks li a:hover::after {
     transition: all 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Contact Form Responsive Fixes */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 10px;
+    }
+
+    .contact-form {
+        padding: 20px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .contact-item {
+        padding: 12px;
+    }
+
+    .contact-item i {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+
+    .contact-form .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .contact-section {
+        padding: 60px 0 40px 0;
+    }
+
+    .contact-section .wrapper {
+        padding: 0 15px;
+    }
+}
+
+/* Additional fixes for extra small screens */
+@media (max-width: 480px) {
+    .contact-content {
+        gap: 20px;
+        padding: 5px;
+    }
+
+    .contact-form {
+        padding: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .contact-info {
+        gap: 20px;
+    }
+}
+
 @media (max-width: 768px) {
     .contact-content {
         grid-template-columns: 1fr;
@@ -1518,7 +1689,7 @@ nav .navlinks li a:hover::after {
     }
 
     .contact-section {
-        padding: 80px 0 30px 0;
+        padding: 80px 0 40px 0;
     }
     
     .footer {
@@ -1541,4 +1712,16 @@ nav .navlinks li a:hover::after {
     .section-title {
         font-size: 2rem;
     }
+    .logo .logo-text{
+        display: none;
+    }
+}
+
+/* Add touch-action to buttons and interactive elements */
+.btn,
+.filter-btn,
+.portfolio-card,
+.blog-card,
+.contact-form .btn {
+    touch-action: manipulation;
 }
