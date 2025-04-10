@@ -1,3 +1,6 @@
+/* ======================
+   Base Styles & Reset
+   ====================== */
 *{
     box-sizing: border-box;
     padding: 0;
@@ -9,6 +12,10 @@ body{
     overflow-x: hidden;
     z-index: 0;
 }
+
+/* ======================
+   Header & Navigation
+   ====================== */
 .hero-header{
     width: 100%;
     min-height: 100vh;
@@ -107,20 +114,24 @@ nav {
 
 .toggleBtn span:nth-child(1) {
     top: 10px;
+    background: #007ced;
 }
 
 .toggleBtn span:nth-child(2) {
     top: 20px;
+    background: #007ced;
 }
 
 .toggleBtn span:nth-child(3) {
     top: 30px;
+    background: #007ced;
 }
 
 .toggleBtn.active span:nth-child(1) {
     top: 20px;
     transform: rotate(45deg);
     background: #007ced;
+    box-shadow: 0 0 15px rgba(0, 124, 237, 0.5);
 }
 
 .toggleBtn.active span:nth-child(2) {
@@ -132,6 +143,12 @@ nav {
     top: 20px;
     transform: rotate(-45deg);
     background: #007ced;
+    box-shadow: 0 0 15px rgba(0, 124, 237, 0.5);
+}
+
+.toggleBtn:hover span {
+    background: #0056b3;
+    box-shadow: 0 0 15px rgba(0, 124, 237, 0.5);
 }
 
 nav .navlinks{
@@ -168,6 +185,9 @@ nav .navlinks li a:hover::after {
     width: 100%;
 }
 
+/* ======================
+   Hero Section
+   ====================== */
 .container{
     display: flex;
     justify-content: center;
@@ -478,167 +498,13 @@ nav .navlinks li a:hover::after {
         min-height: 24px;
     }
     .logo .logo-text {
-        display: none;
+        display: none !important;
     }
 }
 
-@media(max-width:768px)
-{
-    .container {
-        flex-direction: column;
-        padding-top: 2rem;
-    }
-    .hero-text {
-        padding: 40px 0;
-    }
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    .footer-social a {
-        margin: 0 10px;
-    }
-}
-
-/* Combine these media queries into one */
-@media (max-width: 768px) {
-    /* Portfolio and Blog */
-    .portfolio-grid,
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Resume and Contact */
-    .resume-content,
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    /* Contact Form */
-    .contact-form {
-        padding: 20px;
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-        width: 100%;
-    }
-
-    .contact-item {
-        padding: 15px;
-    }
-
-    .contact-item i {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-
-    /* Section Titles */
-    .section-title {
-        font-size: 2rem;
-    }
-
-    /* Logo */
-    .logo .logo-text {
-        display: none;
-    }
-
-    /* Footer */
-    .footer {
-        padding: 15px 0;
-    }
-}
-
-.footer {
-    position: relative;
-    width: 100%;
-    background-color: #222;
-    padding: 30px 0;
-    margin-top: 0;
-    border-top: 1px solid rgba(0, 124, 237, 0.1);
-    overflow: hidden;
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at top right, rgba(0, 124, 237, 0.1), transparent 50%),
-                radial-gradient(circle at bottom left, rgba(0, 124, 237, 0.1), transparent 50%);
-    z-index: 0;
-}
-
-.footer-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-}
-
-.footer p {
-    color: #e5e5e5;
-    font-size: 0.95rem;
-    font-weight: 400;
-    text-shadow: 0 0 10px rgba(0, 124, 237, 0.3);
-}
-
-.footer-social {
-    display: flex;
-    gap: 15px;
-}
-
-.footer-social a {
-    color: #e5e5e5;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(0, 124, 237, 0.1);
-    border: 1px solid rgba(0, 124, 237, 0.2);
-    box-shadow: 0 0 10px rgba(0, 124, 237, 0.1);
-}
-
-.footer-social a:hover {
-    color: #007ced;
-    transform: translateY(-3px);
-    background: rgba(0, 124, 237, 0.2);
-    box-shadow: 0 5px 15px rgba(0, 124, 237, 0.3);
-    border-color: rgba(0, 124, 237, 0.4);
-}
-
-@media (max-width: 768px) {
-    .footer {
-        padding: 25px 0;
-    }
-    
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .footer-social {
-        justify-content: center;
-    }
-}
-
-/* Portfolio Section */
+/* ======================
+   Portfolio Section
+   ====================== */
 .portfolio-section {
     padding: 100px 0;
     background-color: #f8f9fa;
@@ -1052,36 +918,9 @@ nav .navlinks li a:hover::after {
     box-shadow: 0 5px 15px rgba(0, 124, 237, 0.3);
 }
 
-@media (max-width: 768px) {
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .portfolio-filters {
-        gap: 10px;
-    }
-
-    .filter-btn {
-        padding: 6px 15px;
-        font-size: 0.8rem;
-    }
-
-    .modal-content {
-        padding: 20px;
-        margin: 10% auto;
-    }
-
-    .project-links {
-        flex-direction: column;
-    }
-
-    .project-links .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* Resume Section */
+/* ======================
+   Resume Section
+   ====================== */
 .resume-section {
     padding: 100px 0;
     background-color: #222;
@@ -1267,24 +1106,9 @@ nav .navlinks li a:hover::after {
     }
 }
 
-@media (max-width: 768px) {
-    .resume-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .timeline-item {
-        padding: 15px;
-    }
-    
-    .timeline-item::before {
-        width: 12px;
-        height: 12px;
-        left: -30px;
-    }
-}
-
-/* Blog Section */
+/* ======================
+   Blog Section
+   ====================== */
 .blog-section {
     padding: 100px 0;
     background-color: #fff;
@@ -1408,26 +1232,13 @@ nav .navlinks li a:hover::after {
     transform: translateX(0);
 }
 
-@media (max-width: 768px) {
-    .blog-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    .blog-content {
-        padding: 20px;
-    }
-    
-    .blog-content h3 {
-        font-size: 1.3rem;
-    }
-}
-
-/* Contact Section */
+/* ======================
+   Contact Section
+   ====================== */
 .contact-section {
-    padding: 100px 0 50px 0;
+    padding: 100px 0;
     background-color: #222;
-    color: #fff;
+    color: #e5e5e5;
     position: relative;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
@@ -1505,7 +1316,6 @@ nav .navlinks li a:hover::after {
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     -webkit-backdrop-filter: blur(10px);
-
 }
 
 .form-group {
@@ -1592,6 +1402,22 @@ nav .navlinks li a:hover::after {
 
 /* Contact Form Responsive Fixes */
 @media (max-width: 768px) {
+    .footer {
+        padding: 25px 0;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
     .contact-content {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -1671,26 +1497,192 @@ nav .navlinks li a:hover::after {
     }
 }
 
-@media (max-width: 768px) {
+/* ======================
+   Footer Section
+   ====================== */
+.footer {
+    position: relative;
+    width: 100%;
+    background-color: #222;
+    padding: 30px 0;
+    margin-top: 0;
+    border-top: 1px solid rgba(0, 124, 237, 0.1);
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(0, 124, 237, 0.1), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(0, 124, 237, 0.1), transparent 50%);
+    z-index: 0;
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.footer p {
+    color: #e5e5e5;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-shadow: 0 0 10px rgba(0, 124, 237, 0.3);
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: #e5e5e5;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 124, 237, 0.1);
+    border: 1px solid rgba(0, 124, 237, 0.2);
+    box-shadow: 0 0 10px rgba(0, 124, 237, 0.1);
+}
+
+.footer-social a:hover {
+    color: #007ced;
+    transform: translateY(-3px);
+    background: rgba(0, 124, 237, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 124, 237, 0.3);
+    border-color: rgba(0, 124, 237, 0.4);
+}
+
+/* ======================
+   Media Queries
+   ====================== */
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+/* Medium screens (992px to 1199px) */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* Small screens (768px to 991px) */
+@media (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+/* Extra small screens (576px to 767px) */
+@media (max-width: 767px) {
+    .container {
+        max-width: 540px;
+        flex-direction: column;
+        padding-top: 2rem;
+    }
+    
+    .portfolio-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .resume-content,
     .contact-content {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .logo .logo-text {
+        display: none;
+    }
+    
+    .hero-text {
+        padding: 40px 0;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .footer-social a {
+        margin: 0 10px;
+    }
+    
+    .contact-content {
+        gap: 20px;
+        padding: 15px;
+        margin: 0;
+        width: 100%;
+    }
+    
+    .contact-form {
+        padding: 20px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
     .contact-item {
         padding: 15px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
     }
-
+    
     .contact-item i {
         width: 40px;
         height: 40px;
         font-size: 1rem;
     }
-
-    .contact-form {
-        padding: 20px;
+    
+    .contact-info {
+        width: 100%;
+        padding: 0;
     }
-
+    
+    .contact-section .wrapper {
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
     .contact-section {
         padding: 80px 0 40px 0;
     }
@@ -1700,27 +1692,41 @@ nav .navlinks li a:hover::after {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .portfolio-grid,
-    .blog-grid {
-        grid-template-columns: 1fr;
+/* Mobile screens (up to 575px) */
+@media (max-width: 575px) {
+    .container {
+        max-width: 100%;
+        padding: 0 15px;
     }
-
-    .resume-content,
+    
     .contact-content {
-        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 5px;
     }
-
-    .section-title {
-        font-size: 2rem;
+    
+    .contact-form {
+        padding: 15px;
     }
-    .logo .logo-text{
-        display: none;
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .contact-info {
+        gap: 20px;
     }
 }
 
-/* Add touch-action to buttons and interactive elements */
+/* ======================
+   Utility Classes
+   ====================== */
 .btn,
 .filter-btn,
 .portfolio-card,
