@@ -477,6 +477,9 @@ nav .navlinks li a:hover::after {
     .type-wrapper {
         min-height: 24px;
     }
+    .logo .logo-text {
+        display: none;
+    }
 }
 
 @media(max-width:768px)
