@@ -274,7 +274,8 @@ section.is-visible > *:nth-child(4) {
 
 /* Specific Component Styles */
 .skills-section p {
-  line-height: 2.5;
+  line-height: 1.7; /* Revert to default line-height for better control */
+  color: var(--text-primary); /* Ensure text is visible */
 }
 .skill {
   position: relative;
@@ -305,7 +306,7 @@ section.is-visible > *:nth-child(4) {
 }
 .experience-list li,
 .project-list li {
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-4); /* Increase spacing between list items */
 }
 .experience-list li {
   padding: var(--space-4);
@@ -326,6 +327,10 @@ section.is-visible > *:nth-child(4) {
 }
 .project-list li {
   color: var(--text-secondary);
+}
+.project-list li h3 {
+  margin-top: var(--space-3); /* Add some top margin */
+  margin-bottom: var(--space-2); /* Ensure consistent space below */
 }
 .project-list a {
   font-weight: var(--font-semibold);
@@ -591,4 +596,25 @@ footer {
 
 .theme-switcher-panel li:hover {
   background-color: var(--bg-tertiary);
+}
+
+/* New button style */
+.button {
+  display: inline-block;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--accent);
+  color: var(--bg-primary);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: var(--font-semibold);
+  transition: all var(--transition-fast);
+  border: 1px solid var(--accent);
+  margin-top: var(--space-4); /* Add this line */
+}
+
+.button:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--text-primary); /* Explicitly set text color for hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
