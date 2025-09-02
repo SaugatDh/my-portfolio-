@@ -1,148 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Saugat Dhungana | Front-End Developer</title>
+    <title>Saugat Dhungana | Front-End Developer</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="A minimal portfolio website for Saugat Dhungana, a Front-End Developer specializing in React, modern JavaScript, and UI Design." />
-  <meta name="keywords" content="portfolio, saugat dhungana, web developer, front-end developer, react, javascript, ui design" />
-  <meta name="author" content="Saugat Dhungana" />
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="A minimal portfolio website for Saugat Dhungana, a Front-End Developer specializing in React, modern JavaScript, and UI Design."
+    />
+    <meta
+      name="keywords"
+      content="portfolio, saugat dhungana, web developer, front-end developer, react, javascript, ui design"
+    />
+    <meta name="author" content="Saugat Dhungana" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://saugat-dhungana.com.np/" />
+    <meta property="og:title" content="Saugat Dhungana | Front-End Developer" />
+    <meta
+      property="og:description"
+      content="A minimal portfolio website for Saugat Dhungana, a Front-End Developer specializing in React, modern JavaScript, and UI Design."
+    />
+    <meta property="og:image" content="./Files/profile.png" />
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://saugat-dhungana.com.np/" />
+    <meta
+      property="twitter:title"
+      content="Saugat Dhungana | Front-End Developer"
+    />
+    <meta
+      property="twitter:description"
+      content="A minimal portfolio website for Saugat Dhungana, a Front-End Developer specializing in React, modern JavaScript, and UI Design."
+    />
+    <meta property="twitter:image" content="./Files/profile.png" />
 
-  <!-- Theme initialization script -->
-  <script>
-    (function () {
-      const theme = localStorage.getItem('portfolio-global-theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
-</head>
-<body>
-  <!-- ===== Keyboard Shortcuts ===== -->
-  <div class="keyboard-shortcuts">
-    <button class="keyboard-shortcuts-toggle" aria-label="Show Keyboard Shortcuts">
-      <i class="fas fa-keyboard"></i>
-    </button>
-    <div class="keyboard-shortcuts-panel">
-      <h3>Keyboard Shortcuts</h3>
-      <ul>
-        <li>Dark Theme <span><kbd>Ctrl</kbd> + <kbd>1</kbd></span></li>
-        <li>Light Theme <span><kbd>Ctrl</kbd> + <kbd>2</kbd></span></li>
-        <li>Blue Theme <span><kbd>Ctrl</kbd> + <kbd>3</kbd></span></li>
-        <li>Purple Theme <span><kbd>Ctrl</kbd> + <kbd>4</kbd></span></li>
-        <li>Green Theme <span><kbd>Ctrl</kbd> + <kbd>5</kbd></span></li>
-        <li>Graphite Theme <span><kbd>Ctrl</kbd> + <kbd>6</kbd></span></li>
-      </ul>
-    </div>
-  </div>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Theme Change Notification -->
-  <div class="theme-notification" id="themeNotification" aria-live="polite">
-    <div class="theme-notification-icon"></div>
-    <div class="theme-notification-text"></div>
-  </div>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-  <div class="content-wrapper">
-    <header>
-      <img src="./Files/profile.png"  alt="Profile picture of Saugat Dhungana" />
-      <div>
-        <h1>Saugat Dhungana</h1>
-        <p class="subtitle">Front-End Developer & UI Designer</p>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Theme initialization script -->
+    <script>
+      (function () {
+        const theme = localStorage.getItem('portfolio-global-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ===== Keyboard Shortcuts ===== -->
+    <div class="keyboard-shortcuts">
+      <button
+        class="keyboard-shortcuts-toggle"
+        aria-label="Show Keyboard Shortcuts"
+      >
+        <i class="fas fa-keyboard"></i>
+      </button>
+      <div class="keyboard-shortcuts-panel">
+        <h3>Keyboard Shortcuts</h3>
+        <ul>
+          <li>
+            Dark Theme <span><kbd>Ctrl</kbd> + <kbd>1</kbd></span>
+          </li>
+          <li>
+            Light Theme <span><kbd>Ctrl</kbd> + <kbd>2</kbd></span>
+          </li>
+          <li>
+            Blue Theme <span><kbd>Ctrl</kbd> + <kbd>3</kbd></span>
+          </li>
+          <li>
+            Purple Theme <span><kbd>Ctrl</kbd> + <kbd>4</kbd></span>
+          </li>
+          <li>
+            Green Theme <span><kbd>Ctrl</kbd> + <kbd>5</kbd></span>
+          </li>
+          <li>
+            Graphite Theme <span><kbd>Ctrl</kbd> + <kbd>6</kbd></span>
+          </li>
+        </ul>
       </div>
-    </header>
+    </div>
 
-    <nav aria-label="Main Navigation">
-      <a href="index.html" class="nav-active">Home</a>
-      <a href="works.html">Works</a>
-      <a href="blogs.html">Blogs</a>
-      <a href="contact.html">Contact Me</a>
-    </nav>
-    
-    <main>
-      <section>
-        <h2>About</h2>
-        <p>
-          Hi! My name is Saugat Dhungana — a passionate and detail-oriented
-          Front-End Developer with a strong interest in creating intuitive,
-          user-friendly web experiences. I specialize in React and modern
-          JavaScript frameworks, and I also have a growing skill set in
-          Artificial Intelligence and Machine Learning. I'm always eager to
-          learn, build, and solve real-world problems.
+    <!-- Theme Change Notification -->
+    <div class="theme-notification" id="themeNotification" aria-live="polite">
+      <div class="theme-notification-icon"></div>
+      <div class="theme-notification-text"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <header>
+        <img
+          src="./Files/profile.png"
+          alt="Profile picture of Saugat Dhungana"
+        />
+        <div>
+          <h1>Saugat Dhungana</h1>
+          <p class="subtitle">Front-End Developer & UI Designer</p>
+        </div>
+      </header>
+
+      <nav aria-label="Main Navigation">
+        <a href="index.html" class="nav-active">Home</a>
+        <a href="works.html">Works</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html">Contact Me</a>
+      </nav>
+
+      <main>
+        <section>
+          <h2>About</h2>
+          <p>
+            Hi! My name is Saugat Dhungana — a passionate and detail-oriented
+            Front-End Developer with a strong interest in creating intuitive,
+            user-friendly web experiences. I specialize in React and modern
+            JavaScript frameworks, and I also have a growing skill set in
+            Artificial Intelligence and Machine Learning. I'm always eager to
+            learn, build, and solve real-world problems.
+          </p>
+        </section>
+
+        <section class="skills-section">
+          <h2>Skills</h2>
+          <p>
+            <span class="skill">React</span>,
+            <span class="skill">JavaScript</span>,
+            <span class="skill">Frontend Development</span>,
+            <span class="skill">Machine Learning</span>,
+            <span class="skill">IOT Development</span>,
+            <span class="skill">Laravel</span>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Experience</h2>
+          <ul class="experience-list">
+            <li>
+              <span>On The Job Training</span> — May 2020 - Nov 2020
+              <p>Shree Janata Secondary School, Gauradaha</p>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Recent Projects</h2>
+          <ul class="project-list">
+            <li>
+              <a
+                href="https://github.com/SaugatDh/MeroShop"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Mero Shop Ecommerce</a
+              >
+              — E-commerce website with Laravel framework.
+            </li>
+            <li>
+              <a
+                href="https://github.com/SaugatDh/chatbot"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Chatbot</a
+              >
+              — Simple chatbot app using machine learning and NLP application.
+            </li>
+            <li>
+              <a
+                href="https://github.com/SaugatDh/document-parser"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Document parser</a
+              >
+              — An AI-powered tool that uses a fine-tuned YOLOv8 model to detect
+              layout components in documents.
+            </li>
+          </ul>
+          <p>
+            <a href="works.html" class="view-all-link">View all projects →</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Connect</h2>
+          <ul class="connect-list">
+            <li>
+              <a
+                href="mailto:saugatdhungana746@gmail.com"
+                title="Email"
+                aria-label="Email"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/SaugatDh"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="GitHub"
+                aria-label="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.saugat-dhungana.com.np"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Portfolio"
+                aria-label="Portfolio"
+                ><i class="fas fa-globe"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Instagram"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" title="Phone" aria-label="Phone"
+                ><i class="fas fa-phone"></i
+              ></a>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer>
+        <p class="quote">
+          "The best way to predict the future is to create it."
         </p>
-      </section>
+        <p class="quote-author">- Peter Drucker</p>
+      </footer>
+    </div>
 
-      <section class="skills-section">
-        <h2>Skills</h2>
-        <p>
-          <span class="skill">React</span>, <span class="skill">JavaScript</span>,
-          <span class="skill">Frontend Development</span>,
-          <span class="skill">Machine Learning</span>,
-          <span class="skill">IOT Development</span>,
-          <span class="skill">Laravel</span>.
-        </p>
-      </section>
-
-      <section>
-        <h2>Experience</h2>
-        <ul class="experience-list">
-          <li>
-            <span>On The Job Training</span> — May 2020 - Nov 2020
-            <p>Shree Janata Secondary School, Gauradaha</p>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Recent Projects</h2>
-        <ul class="project-list">
-          <li>
-            <a href="https://github.com/SaugatDh/MeroShop" target="_blank" rel="noopener noreferrer">Mero Shop Ecommerce</a>
-            — E-commerce website with Laravel framework.
-          </li>
-          <li>
-            <a href="https://github.com/SaugatDh/chatbot" target="_blank" rel="noopener noreferrer">Chatbot</a>
-            — Simple chatbot app using machine learning and NLP application.
-          </li>
-          <li>
-            <a href="https://github.com/SaugatDh/document-parser" target="_blank" rel="noopener noreferrer">Document parser</a>
-            — An AI-powered tool that uses a fine-tuned YOLOv8 model to detect
-            layout components in documents.
-          </li>
-        </ul>
-        <p><a href="works.html" class="view-all-link">View all projects →</a></p>
-      </section>
-
-      <section>
-        <h2>Connect</h2>
-        <ul class="connect-list">
-          <li><a href="mailto:saugatdhungana746@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-          <li><a href="https://github.com/SaugatDh" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-          <li><a href="https://www.saugat-dhungana.com.np" target="_blank" rel="noopener noreferrer" title="Portfolio" aria-label="Portfolio"><i class="fas fa-globe"></i></a></li>
-          <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#" title="Phone" aria-label="Phone"><i class="fas fa-phone"></i></a></li>
-        </ul>
-      </section>
-    </main>
-    
-    <footer>
-      <p class="quote">"The best way to predict the future is to create it."</p>
-      <p class="quote-author">- Peter Drucker</p>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

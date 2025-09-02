@@ -1,105 +1,180 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Saugat Dhungana | Contact</title>
+    <title>Saugat Dhungana | Contact</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Get in touch with Saugat Dhungana for collaborations, projects, or inquiries."/>
-  <meta name="keywords" content="contact, Saugat Dhungana, portfolio, web developer, email, social media"/>
-  <meta name="author" content="Saugat Dhungana" />
-  <meta property="og:title" content="Saugat Dhungana | Contact" />
-  <meta property="og:description" content="Contact Saugat Dhungana for web development projects or UI design."/>
-  <meta property="og:image" content="./Files/profile.png"  />
-  <meta property="og:url" content="https://saugat-dhungana.com.np/contact.html" />
-  <meta property="og:type" content="website" />
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Get in touch with Saugat Dhungana for collaborations, projects, or inquiries."
+    />
+    <meta
+      name="keywords"
+      content="contact, Saugat Dhungana, portfolio, web developer, email, social media"
+    />
+    <meta name="author" content="Saugat Dhungana" />
+    <meta property="og:title" content="Saugat Dhungana | Contact" />
+    <meta
+      property="og:description"
+      content="Contact Saugat Dhungana for web development projects or UI design."
+    />
+    <meta property="og:image" content="./Files/profile.png" />
+    <meta
+      property="og:url"
+      content="https://saugat-dhungana.com.np/contact.html"
+    />
+    <meta property="og:type" content="website" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-  <!-- Theme initialization script -->
-  <script>
-    (function () {
-      const theme = localStorage.getItem('portfolio-global-theme') || 'dark';
-      document.documentElement.setAttribute('data-theme', theme);
-    })();
-  </script>
-</head>
-<body>
-  <!-- ===== Keyboard Shortcuts ===== -->
-  <div class="keyboard-shortcuts">
-    <button class="keyboard-shortcuts-toggle" aria-label="Show Keyboard Shortcuts">
-      <i class="fas fa-keyboard"></i>
-    </button>
-    <div class="keyboard-shortcuts-panel">
-      <h3>Keyboard Shortcuts</h3>
-      <ul>
-        <li>Dark Theme <span><kbd>Ctrl</kbd> + <kbd>1</kbd></span></li>
-        <li>Light Theme <span><kbd>Ctrl</kbd> + <kbd>2</kbd></span></li>
-        <li>Blue Theme <span><kbd>Ctrl</kbd> + <kbd>3</kbd></span></li>
-        <li>Purple Theme <span><kbd>Ctrl</kbd> + <kbd>4</kbd></span></li>
-        <li>Green Theme <span><kbd>Ctrl</kbd> + <kbd>5</kbd></span></li>
-        <li>Graphite Theme <span><kbd>Ctrl</kbd> + <kbd>6</kbd></span></li>
-      </ul>
-    </div>
-  </div>
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- Theme Change Notification -->
-  <div class="theme-notification" id="themeNotification" aria-live="polite">
-    <div class="theme-notification-icon"></div>
-    <div class="theme-notification-text"></div>
-  </div>
-
-  <div class="content-wrapper">
-    <header>
-      <img src="./Files/profile.png"  alt="Profile picture of Saugat Dhungana" />
-      <div>
-        <h1>Saugat Dhungana</h1>
-        <p class="subtitle">Front-End Developer & UI Designer</p>
-      </div>
-    </header>
-
-    <nav aria-label="Main Navigation">
-      <a href="index.html">Home</a>
-      <a href="works.html">Works</a>
-      <a href="blogs.html">Blogs</a>
-      <a href="contact.html" class="nav-active">Contact Me</a>
-    </nav>
-    
-    <main>
-      <section>
-        <h2>Get in Touch</h2>
-        <p>
-          I'm always interested in hearing about new opportunities and projects.
-          Whether you have a question or just want to say hi, feel free to reach out. The best way to contact me is via email.
-        </p>
-
-        <ul class="connect-list">
-          <li><a href="mailto:saugatdhungana746@gmail.com" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-          <li><a href="https://github.com/SaugatDh" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-          <li><a href="https://www.saugat-dhungana.com.np" target="_blank" rel="noopener noreferrer" title="Portfolio" aria-label="Portfolio"><i class="fas fa-globe"></i></a></li>
-          <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#" title="Phone" aria-label="Phone"><i class="fas fa-phone"></i></a></li>
+    <!-- Theme initialization script -->
+    <script>
+      (function () {
+        const theme = localStorage.getItem('portfolio-global-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- ===== Keyboard Shortcuts ===== -->
+    <div class="keyboard-shortcuts">
+      <button
+        class="keyboard-shortcuts-toggle"
+        aria-label="Show Keyboard Shortcuts"
+      >
+        <i class="fas fa-keyboard"></i>
+      </button>
+      <div class="keyboard-shortcuts-panel">
+        <h3>Keyboard Shortcuts</h3>
+        <ul>
+          <li>
+            Dark Theme <span><kbd>Ctrl</kbd> + <kbd>1</kbd></span>
+          </li>
+          <li>
+            Light Theme <span><kbd>Ctrl</kbd> + <kbd>2</kbd></span>
+          </li>
+          <li>
+            Blue Theme <span><kbd>Ctrl</kbd> + <kbd>3</kbd></span>
+          </li>
+          <li>
+            Purple Theme <span><kbd>Ctrl</kbd> + <kbd>4</kbd></span>
+          </li>
+          <li>
+            Green Theme <span><kbd>Ctrl</kbd> + <kbd>5</kbd></span>
+          </li>
+          <li>
+            Graphite Theme <span><kbd>Ctrl</kbd> + <kbd>6</kbd></span>
+          </li>
         </ul>
-      </section>
-    </main>
-    
-    <footer>
-      <p class="quote">"Stay curious. Stay foolish."</p>
-      <p class="quote-author">- Steve Jobs</p>
-    </footer>
-  </div>
+      </div>
+    </div>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Theme Change Notification -->
+    <div class="theme-notification" id="themeNotification" aria-live="polite">
+      <div class="theme-notification-icon"></div>
+      <div class="theme-notification-text"></div>
+    </div>
+
+    <div class="content-wrapper">
+      <header>
+        <img
+          src="./Files/profile.png"
+          alt="Profile picture of Saugat Dhungana"
+        />
+        <div>
+          <h1>Saugat Dhungana</h1>
+          <p class="subtitle">Front-End Developer & UI Designer</p>
+        </div>
+      </header>
+
+      <nav aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="works.html">Works</a>
+        <a href="blogs.html">Blogs</a>
+        <a href="contact.html" class="nav-active">Contact Me</a>
+      </nav>
+
+      <main>
+        <section>
+          <h2>Get in Touch</h2>
+          <p>
+            I'm always interested in hearing about new opportunities and
+            projects. Whether you have a question or just want to say hi, feel
+            free to reach out. The best way to contact me is via email.
+          </p>
+
+          <ul class="connect-list">
+            <li>
+              <a
+                href="mailto:saugatdhungana746@gmail.com"
+                title="Email"
+                aria-label="Email"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/SaugatDh"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="GitHub"
+                aria-label="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.saugat-dhungana.com.np"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Portfolio"
+                aria-label="Portfolio"
+                ><i class="fas fa-globe"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/saugat.dh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Instagram"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+            <li>
+              <a href="tel:+9779800000000" title="Phone" aria-label="Phone"
+                ><i class="fas fa-phone"></i
+              ></a>
+            </li>
+          </ul>
+        </section>
+      </main>
+
+      <footer>
+        <p class="quote">"Stay curious. Stay foolish."</p>
+        <p class="quote-author">- Steve Jobs</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

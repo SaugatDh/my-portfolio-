@@ -2,13 +2,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all classes
   const themeManager = new GlobalThemeManager();
-  const pageAnimations = new PageAnimations();
-  const shortcutsPanel = new KeyboardShortcutsPanel();
+  new PageAnimations();
+  new KeyboardShortcutsPanel();
 
   // Expose themeManager globally for keyboard shortcuts
   window.myApp = { themeManager };
 });
-
 
 // --- GLOBAL THEME MANAGER ---
 class GlobalThemeManager {
@@ -22,19 +21,22 @@ class GlobalThemeManager {
   getStoredTheme() {
     const stored = localStorage.getItem(this.storageKey);
     if (stored) return stored;
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
       return 'dark';
     }
-    return 'graphite';
+    return 'dark';
   }
-  
+
   applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
   }
 
   setTheme(theme) {
     if (theme === this.currentTheme) return;
-    
+
     this.currentTheme = theme;
     this.applyTheme(theme);
     localStorage.setItem(this.storageKey, theme);
@@ -43,25 +45,28 @@ class GlobalThemeManager {
 
   showNotification(theme) {
     if (!this.notification) return;
-    
+
     const iconMap = {
-      light: 'fa-sun', dark: 'fa-moon', blue: 'fa-water', 
-      purple: 'fa-paint-brush', green: 'fa-leaf', graphite: 'fa-adjust'
+      light: 'fa-sun',
+      dark: 'fa-moon',
+      blue: 'fa-water',
+      purple: 'fa-paint-brush',
+      green: 'fa-leaf',
+      graphite: 'fa-adjust',
     };
-    
+
     const iconEl = this.notification.querySelector('.theme-notification-icon');
     const textEl = this.notification.querySelector('.theme-notification-text');
-    
+
     iconEl.innerHTML = `<i class="fas ${iconMap[theme]}"></i>`;
     textEl.textContent = `${theme.charAt(0).toUpperCase() + theme.slice(1)} theme applied`;
 
     this.notification.classList.add('active');
     setTimeout(() => {
-        this.notification.classList.remove('active');
+      this.notification.classList.remove('active');
     }, 2500);
   }
 }
-
 
 // --- PAGE REVEAL ANIMATIONS ---
 class PageAnimations {
@@ -74,17 +79,17 @@ class PageAnimations {
     if (this.sections.length === 0) return;
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -50px 0px',
     };
     const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
-    this.sections.forEach(section => observer.observe(section));
+    this.sections.forEach((section) => observer.observe(section));
   }
 }
 
@@ -103,7 +108,10 @@ class KeyboardShortcutsPanel {
       this.panel.classList.toggle('active');
     });
     document.addEventListener('click', (e) => {
-      if (this.panel.classList.contains('active') && !this.panel.contains(e.target)) {
+      if (
+        this.panel.classList.contains('active') &&
+        !this.panel.contains(e.target)
+      ) {
         this.panel.classList.remove('active');
       }
     });
@@ -115,7 +123,7 @@ document.addEventListener('keydown', (e) => {
   if ((e.ctrlKey || e.metaKey) && window.myApp && window.myApp.themeManager) {
     const key = e.key;
     const themes = ['dark', 'light', 'blue', 'purple', 'green', 'graphite'];
-    
+
     if (key >= '1' && key <= '6') {
       e.preventDefault();
       window.myApp.themeManager.setTheme(themes[parseInt(key) - 1]);
