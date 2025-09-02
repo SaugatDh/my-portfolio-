@@ -532,3 +532,63 @@ footer {
     left: var(--space-2);
   }
 }
+
+/* ==============================================
+   THEME SWITCHER
+   ============================================== */
+.theme-switcher {
+  position: relative;
+  margin-left: auto;
+}
+
+.theme-switcher-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.theme-switcher-toggle:hover {
+  color: var(--text-primary);
+}
+
+.theme-switcher-panel {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2);
+  width: 150px;
+  box-shadow: 0 8px 24px var(--shadow);
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+  transition: opacity var(--transition-medium), transform var(--transition-medium), visibility var(--transition-medium);
+}
+
+.theme-switcher-panel.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.theme-switcher-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.theme-switcher-panel li {
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  border-radius: var(--radius-md);
+}
+
+.theme-switcher-panel li:hover {
+  background-color: var(--bg-tertiary);
+}

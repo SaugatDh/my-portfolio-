@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeManager = new GlobalThemeManager();
   new PageAnimations();
   new KeyboardShortcutsPanel();
+  new ThemeSwitcher(themeManager);
 
   // Expose themeManager globally for keyboard shortcuts
   window.myApp = { themeManager };
@@ -114,6 +115,40 @@ class KeyboardShortcutsPanel {
       ) {
         this.panel.classList.remove('active');
       }
+    });
+  }
+}
+
+// --- THEME SWITCHER ---
+class ThemeSwitcher {
+  constructor(themeManager) {
+    this.themeManager = themeManager;
+    this.toggleButton = document.querySelector('.theme-switcher-toggle');
+    this.panel = document.querySelector('.theme-switcher-panel');
+    this.themeItems = document.querySelectorAll('.theme-switcher-panel li');
+
+    if (!this.toggleButton || !this.panel) return;
+    this.init();
+  }
+
+  init() {
+    this.toggleButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.panel.classList.toggle('active');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (this.panel.classList.contains('active') && !this.panel.contains(e.target)) {
+        this.panel.classList.remove('active');
+      }
+    });
+
+    this.themeItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        const theme = e.target.dataset.theme;
+        this.themeManager.setTheme(theme);
+        this.panel.classList.remove('active');
+      });
     });
   }
 }
