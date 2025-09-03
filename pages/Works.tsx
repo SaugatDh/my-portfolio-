@@ -16,7 +16,7 @@ const Works = () => {
       <ul className="project-list">
         <li>
           <img
-            src="./files/placeholder-ecommerce.jpg"
+            src="./placeholder-ecommerce.jpg"
             alt="MeroShop E-commerce Platform"
             className="project-image"
             loading="lazy"
@@ -39,7 +39,7 @@ const Works = () => {
         </li>
         <li>
           <img
-            src="./files/placeholder-document.jpg"
+            src="./placeholder-document.jpg"
             alt="AI Document Parser"
             className="project-image"
             loading="lazy"
@@ -61,7 +61,7 @@ const Works = () => {
         </li>
         <li>
           <img
-            src="./files/placeholder-medical.jpg"
+            src="./placeholder-medical.jpg"
             alt="Ausadhi AI: Medical Assistant"
             className="project-image"
             loading="lazy"
@@ -82,7 +82,7 @@ const Works = () => {
         </li>
         <li>
           <img
-            src="./files/placeholder-chatbot.jpg"
+            src="./placeholder-chatbot.jpg"
             alt="NLP Chatbot"
             className="project-image"
             loading="lazy"
@@ -106,7 +106,7 @@ const Works = () => {
         </li>
         <li>
           <img
-            src="./files/placeholder-lms.jpg"
+            src="./placeholder-lms.jpg"
             alt="Learning Management System"
             className="project-image"
             loading="lazy"
@@ -126,7 +126,7 @@ const Works = () => {
   
         <li>
           <img
-            src="./files/placeholder-resume.jpg"
+            src="./placeholder-resume.jpg"
             alt="Resume Information Extractor"
             className="project-image"
             loading="lazy"
@@ -145,7 +145,7 @@ const Works = () => {
         </li>
         <li>
           <img
-            src="./files/placeholder-iot-farm.jpg"
+            src="./placeholder-iot-farm.jpg"
             alt="Smart Farm IoT Solution"
             className="project-image"
             loading="lazy"
@@ -164,7 +164,7 @@ const Works = () => {
         </li>
         <li>
           <img
-            src="./files/placeholder-iot-home.jpg"
+            src="./placeholder-iot-home.jpg"
             alt="Smart Home Automation"
             className="project-image"
             loading="lazy"
