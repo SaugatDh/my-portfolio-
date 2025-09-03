@@ -35,7 +35,7 @@ jobs:
       - name: Upload artifact for Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./build   # <-- must match your build folder
+          path: ./dist   # <-- must match your build folder
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
