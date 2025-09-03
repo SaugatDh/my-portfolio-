@@ -33,12 +33,9 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Upload artifact for Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
-          # If using Vite:
-          path: ./dist
-          # If using Create React App:
-          # path: ./build
+          path: ./dist   # <-- must match your build folder
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
