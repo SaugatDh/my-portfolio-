@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <img
-        src="./files/profile.png"
+        src="./profile.png"
         alt="Profile picture of Saugat Dhungana"
         loading="lazy"
       />
