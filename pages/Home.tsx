@@ -23,7 +23,7 @@ const Home = () => {
         </p>
         <p>
           <a
-            href="./files/Saugat-Dhungana-cv.pdf"
+            href="./Saugat-Dhungana-cv.pdf"
             download
             className="button"
           >
@@ -89,7 +89,7 @@ const Home = () => {
         <ul className="project-list">
           <li>
             <img
-              src="./files/placeholder-ecommerce.jpg"
+              src="./placeholder-ecommerce.jpg"
               alt="MeroShop E-commerce Platform"
               className="project-image"
               loading="lazy"
@@ -108,7 +108,7 @@ const Home = () => {
           </li>
           <li>
             <img
-              src="./files/placeholder-chatbot.jpg"
+              src="./placeholder-chatbot.jpg"
               alt="NLP Chatbot"
               className="project-image"
               loading="lazy"
@@ -131,7 +131,7 @@ const Home = () => {
           </li>
           <li>
             <img
-              src="./files/placeholder-document.jpg"
+              src="./placeholder-document.jpg"
               alt="AI Document Parser"
               className="project-image"
               loading="lazy"
@@ -153,7 +153,7 @@ const Home = () => {
           </li>
           <li>
             <img
-              src="./files/placeholder-medical.jpg"
+              src="./placeholder-medical.jpg"
               alt="Ausadhi AI: Medical Assistant"
               className="project-image"
               loading="lazy"
