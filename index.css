@@ -27,6 +27,22 @@
   /* Gray-200 */
 }
 
+/* Mobile font size adjustment (phones) */
+@media (max-width: 639px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+/* Tablet font size adjustment */
+@media (min-width: 640px) and (max-width: 1023px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* Desktop font size (1024px and above keeps 19px) */
+
 [data-theme='dark'] {
   /* Grayish Dark Mode */
   --bg-primary: #2d2d2d;

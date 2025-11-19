@@ -8,36 +8,45 @@ import AnimatedSection from '../components/AnimatedSection';
 const Home = () => {
   return (
     <>
-      <AnimatedSection id="about" className="mb-24 text-center max-w-4xl mx-auto">
-        <h2 className="text-5xl font-medium mb-8">About Me</h2>
-        <p className="mb-8 text-xl leading-relaxed text-[var(--text-secondary)]">
-          Hello! I'm Saugat Dhungana, a versatile developer with a deep passion for
-          creating innovative solutions across Web, AI/ML, and the Internet of Things.
-          I thrive on turning complex problems into elegant, user-friendly applications.
-          My journey in technology is driven by a relentless curiosity and a desire to build things that make a difference.
+      {/* Hero Section */}
+      <AnimatedSection className="mb-20 text-center">
+        <img
+          src="./profile.png"
+          alt="Profile picture of Saugat Dhungana"
+          className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full object-cover mx-auto mb-6 shadow-xl border-4 border-[var(--bg-secondary)]"
+          loading="eager"
+        />
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Saugat Dhungana</h1>
+        <p className="text-lg sm:text-xl md:text-2xl text-[var(--text-secondary)] mb-8 max-w-3xl mx-auto">
+          Full-Stack Developer & AI/ML Enthusiast
         </p>
-        <p className="mb-10 text-xl leading-relaxed text-[var(--text-secondary)]">
-          I specialize in building responsive front-end experiences with React and modern JavaScript,
-          but I'm equally comfortable diving into the world of machine learning models or tinkering with IoT hardware.
-          I'm a lifelong learner, constantly exploring new tools and paradigms to push the boundaries of what's possible.
+        <p className="text-base sm:text-lg text-[var(--text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
+          Crafting innovative solutions across Web, AI/ML, and IoT. Turning complex problems into elegant, user-friendly applications.
         </p>
-        <p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <a
             href="./Saugat-Dhungana-cv.pdf"
             download
-            className="inline-block px-8 py-3 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-full text-base font-medium border border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)] transition-all"
+            className="inline-block px-6 sm:px-8 py-2 sm:py-3 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-full text-sm sm:text-base font-medium border border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)] transition-all"
           >
             Download CV
           </a>
-        </p>
+          <a
+            href="#contact"
+            className="inline-block px-6 sm:px-8 py-2 sm:py-3 bg-transparent text-[var(--text-primary)] rounded-full text-sm sm:text-base font-medium border border-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all"
+          >
+            Get in Touch
+          </a>
+        </div>
       </AnimatedSection>
 
+      {/* Skillset Section */}
       <AnimatedSection className="mb-24 text-center max-w-6xl mx-auto">
-        <h2 className="text-4xl font-medium mb-12">My Skillset</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-12">My Skillset</h2>
         <ul className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto">
           <li className="bg-[var(--bg-secondary)] rounded-2xl p-10 text-center hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-semibold uppercase tracking-wider mb-6 text-[var(--text-primary)]">Frontend Development</h3>
-            <ul className="space-y-3 text-lg text-[var(--text-secondary)]">
+            <h3 className="text-base sm:text-lg font-semibold uppercase tracking-wider mb-6 text-[var(--text-primary)]">Frontend Development</h3>
+            <ul className="space-y-3 text-sm sm:text-base md:text-lg text-[var(--text-secondary)]">
               <li>HTML5 & CSS3</li>
               <li>JavaScript (ES6+)</li>
               <li>React</li>
@@ -46,8 +55,8 @@ const Home = () => {
             </ul>
           </li>
           <li className="bg-[var(--bg-secondary)] rounded-2xl p-10 text-center hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-semibold uppercase tracking-wider mb-6 text-[var(--text-primary)]">AI & Machine Learning</h3>
-            <ul className="space-y-3 text-lg text-[var(--text-secondary)]">
+            <h3 className="text-base sm:text-lg font-semibold uppercase tracking-wider mb-6 text-[var(--text-primary)]">AI & Machine Learning</h3>
+            <ul className="space-y-3 text-sm sm:text-base md:text-lg text-[var(--text-secondary)]">
               <li>Python</li>
               <li>Data Science</li>
               <li>YOLOv8</li>
@@ -56,8 +65,8 @@ const Home = () => {
             </ul>
           </li>
           <li className="bg-[var(--bg-secondary)] rounded-2xl p-10 text-center hover:shadow-md transition-all duration-300">
-            <h3 className="text-lg font-semibold uppercase tracking-wider mb-6 text-[var(--text-primary)]">IoT & Hardware</h3>
-            <ul className="space-y-3 text-lg text-[var(--text-secondary)]">
+            <h3 className="text-base sm:text-lg font-semibold uppercase tracking-wider mb-6 text-[var(--text-primary)]">IoT & Hardware</h3>
+            <ul className="space-y-3 text-sm sm:text-base md:text-lg text-[var(--text-secondary)]">
               <li>Arduino</li>
               <li>Embedded Systems</li>
               <li>Sensor Integration</li>
@@ -69,16 +78,30 @@ const Home = () => {
       </AnimatedSection>
 
       <AnimatedSection className="mb-24 text-center">
-        <h2 className="text-4xl font-medium mb-12">Experience</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-12">Experience</h2>
         <div className="space-y-6 max-w-4xl mx-auto text-left">
+          <div className="group flex flex-col md:flex-row gap-4 md:gap-10 p-8 rounded-2xl hover:bg-[var(--bg-secondary)] transition-colors duration-300">
+            <div className="md:w-1/4 flex-shrink-0">
+              <span className="text-sm font-medium text-[var(--text-tertiary)] uppercase tracking-wider">2025</span>
+            </div>
+            <div className="md:w-3/4">
+              <h3 className="text-xl sm:text-2xl font-medium text-[var(--text-primary)] mb-2">AI Engineering Intern</h3>
+              <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-4">IOXET, Lalitpur</p>
+              <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
+                Developing and implementing AI/ML solutions, working on cutting-edge artificial intelligence
+                projects, and contributing to innovative engineering applications.
+              </p>
+            </div>
+          </div>
+
           <div className="group flex flex-col md:flex-row gap-4 md:gap-10 p-8 rounded-2xl hover:bg-[var(--bg-secondary)] transition-colors duration-300">
             <div className="md:w-1/4 flex-shrink-0">
               <span className="text-sm font-medium text-[var(--text-tertiary)] uppercase tracking-wider">2021 — Present</span>
             </div>
             <div className="md:w-3/4">
-              <h3 className="text-2xl font-medium text-[var(--text-primary)] mb-2">Freelance Developer</h3>
-              <p className="text-base text-[var(--text-secondary)] mb-4">Remote</p>
-              <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-medium text-[var(--text-primary)] mb-2">Freelance Developer</h3>
+              <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-4">Remote</p>
+              <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
                 Collaborating with clients globally to deliver tailored web solutions.
                 Specializing in building responsive front-end interfaces with React and integrating
                 robust back-end systems.
@@ -91,9 +114,9 @@ const Home = () => {
               <span className="text-sm font-medium text-[var(--text-tertiary)] uppercase tracking-wider">May — Nov 2020</span>
             </div>
             <div className="md:w-3/4">
-              <h3 className="text-2xl font-medium text-[var(--text-primary)] mb-2">On The Job Training</h3>
-              <p className="text-base text-[var(--text-secondary)] mb-4">Shree Janata Secondary School, Gauradaha</p>
-              <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
+              <h3 className="text-xl sm:text-2xl font-medium text-[var(--text-primary)] mb-2">On The Job Training</h3>
+              <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-4">Shree Janata Secondary School, Gauradaha</p>
+              <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
                 Assisted in IT infrastructure management and provided technical support.
                 Gained hands-on experience in network troubleshooting and system administration
                 within an educational environment.
@@ -104,7 +127,7 @@ const Home = () => {
       </AnimatedSection>
 
       <AnimatedSection className="mb-24 max-w-6xl mx-auto">
-        <h2 className="text-4xl font-medium mb-12 text-center">Recent Projects</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-12 text-center">Recent Projects</h2>
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           <li className="group">
             <img
@@ -113,7 +136,7 @@ const Home = () => {
               className="w-full h-64 object-cover rounded-lg mb-4 bg-[var(--bg-secondary)] opacity-90 group-hover:opacity-100 transition-opacity"
               loading="lazy"
             />
-            <h3 className="text-xl font-medium mb-2">
+            <h3 className="text-lg sm:text-xl font-medium mb-2">
               <a
                 href="https://github.com/SaugatDh/MeroShop"
                 target="_blank"
@@ -123,7 +146,7 @@ const Home = () => {
                 MeroShop E-commerce Platform
               </a>
             </h3>
-            <p className="text-[var(--text-secondary)] text-base mb-2">E-commerce website with Laravel framework.</p>
+            <p className="text-[var(--text-secondary)] text-sm sm:text-base mb-2">E-commerce website with Laravel framework.</p>
             <p className="text-sm text-[var(--text-tertiary)]">Technologies: Laravel, PHP, MySQL</p>
           </li>
           <li className="group">
@@ -143,7 +166,7 @@ const Home = () => {
                 NLP Chatbot
               </a>
             </h3>
-            <p className="text-[var(--text-secondary)] text-base mb-2">
+            <p className="text-[var(--text-secondary)] text-sm sm:text-base mb-2">
               Simple chatbot app using machine learning and NLP application.
             </p>
             <p className="text-sm text-[var(--text-tertiary)]">
@@ -167,7 +190,7 @@ const Home = () => {
                 AI Document Parser
               </a>
             </h3>
-            <p className="text-[var(--text-secondary)] text-base mb-2">
+            <p className="text-[var(--text-secondary)] text-sm sm:text-base mb-2">
               An AI-powered tool that uses a fine-tuned YOLOv8 model to detect
               layout components in documents.
             </p>
@@ -190,34 +213,34 @@ const Home = () => {
                 Ausadhi AI: Medical Assistant
               </a>
             </h3>
-            <p className="text-[var(--text-secondary)] text-base mb-2">An AI-powered project for medical applications.</p>
+            <p className="text-[var(--text-secondary)] text-sm sm:text-base mb-2">An AI-powered project for medical applications.</p>
             <p className="text-sm text-[var(--text-tertiary)]">
               Technologies: AI, Machine Learning, Medical Data
             </p>
           </li>
         </ul>
         <p className="text-center mt-10">
-          <Link to="/works" className="text-base font-medium border-b border-[var(--border-light)] hover:text-[var(--text-primary)] transition-colors">
+          <Link to="/works" className="text-sm sm:text-base font-medium border-b border-[var(--border-light)] hover:text-[var(--text-primary)] transition-colors">
             View all projects →
           </Link>
         </p>
       </AnimatedSection>
 
       <AnimatedSection className="mb-24 text-center">
-        <h2 className="text-4xl font-medium mb-4">Ready to collaborate?</h2>
-        <p className="text-[var(--text-secondary)] text-xl mb-8">Let's build something amazing together.</p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-4">Ready to collaborate?</h2>
+        <p className="text-[var(--text-secondary)] text-base sm:text-lg md:text-xl mb-8">Let's build something amazing together.</p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link to="/contact" className="inline-block px-6 py-2 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-full text-base font-medium border border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)] transition-all">
+          <Link to="/contact" className="inline-block px-5 sm:px-6 py-2 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-full text-sm sm:text-base font-medium border border-[var(--text-primary)] hover:bg-transparent hover:text-[var(--text-primary)] transition-all">
             Hire Me
           </Link>
-          <Link to="/works" className="inline-block px-6 py-2 bg-transparent text-[var(--text-primary)] rounded-full text-base font-medium border border-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all">
+          <Link to="/works" className="inline-block px-5 sm:px-6 py-2 bg-transparent text-[var(--text-primary)] rounded-full text-sm sm:text-base font-medium border border-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg-primary)] transition-all">
             Explore My Work
           </Link>
         </div>
       </AnimatedSection>
 
       <AnimatedSection className="text-center">
-        <h2 className="text-3xl font-medium mb-8">Connect</h2>
+        <h2 className="text-2xl sm:text-3xl font-medium mb-8">Connect</h2>
         <ul className="flex justify-center gap-8">
           <li>
             <a
