@@ -18,13 +18,10 @@ const Header = () => {
 
   return (
     <header className="mb-16 pb-6 border-b border-[var(--border-light)] relative">
-      {/* Desktop and Tablet Header (sm and above) */}
-      <div className="hidden sm:flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* Desktop Header (md and above) */}
+      <div className="hidden md:flex items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <h1 className="text-xl font-semibold tracking-tight">
-            <span className="md:hidden">SD</span>
-            <span className="hidden md:inline">Saugat Dhungana</span>
-          </h1>
+          <h1 className="text-xl font-semibold tracking-tight">Saugat Dhungana</h1>
         </div>
         <nav aria-label="Main Navigation" className="flex gap-6 text-base font-medium text-[var(--text-secondary)]">
           <NavLink
@@ -71,8 +68,8 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* Mobile Header (below sm breakpoint) */}
-      <div className="sm:hidden">
+      {/* Mobile and Tablet Header (below md breakpoint) */}
+      <div className="md:hidden">
         <div className="flex items-center justify-between">
           {/* Name/Logo */}
           <h1 className="text-xl font-semibold tracking-tight">SD</h1>
@@ -104,7 +101,7 @@ const Header = () => {
 
         {/* Mobile Menu (Side Drawer) */}
         <div
-          className={`sm:hidden absolute top-full right-0 mt-2 w-64 bg-[var(--bg-secondary)] rounded-lg shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+          className={`md:hidden absolute top-full right-0 mt-2 w-64 bg-[var(--bg-secondary)] rounded-lg shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
