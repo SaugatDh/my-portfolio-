@@ -21,7 +21,10 @@ const Header = () => {
       {/* Desktop and Tablet Header (sm and above) */}
       <div className="hidden sm:flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <h1 className="text-xl font-semibold tracking-tight">Saugat Dhungana</h1>
+          <h1 className="text-xl font-semibold tracking-tight">
+            <span className="md:hidden">SD</span>
+            <span className="hidden md:inline">Saugat Dhungana</span>
+          </h1>
         </div>
         <nav aria-label="Main Navigation" className="flex gap-6 text-base font-medium text-[var(--text-secondary)]">
           <NavLink
