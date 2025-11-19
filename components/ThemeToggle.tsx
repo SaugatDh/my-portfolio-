@@ -2,31 +2,39 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
 */
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem('portfolio-global-theme') || 'dark'
-  );
-  const isDark = theme === 'dark';
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'light';
+    }
+    return 'light';
+  });
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('portfolio-global-theme', theme);
+    const root = window.document.documentElement;
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(isDark ? 'light' : 'dark');
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   return (
-    <div className="theme-toggler">
+    <div className="fixed bottom-6 right-6 z-50">
       <button
-        id="theme-toggle-button"
         onClick={toggleTheme}
-        aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+        id="theme-toggle-button"
+        aria-label="Toggle theme"
+        className="w-12 h-12 rounded-full bg-[var(--bg-primary)] border border-[var(--border-light)] text-[var(--text-secondary)] flex items-center justify-center shadow-lg hover:scale-105 hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] transition-all duration-300"
       >
-        <i className={`fas ${isDark ? 'fa-sun' : 'fa-moon'}`}></i>
+        {theme === 'light' ? (
+          <i className="fas fa-moon"></i>
+        ) : (
+          <i className="fas fa-sun"></i>
+        )}
       </button>
     </div>
   );

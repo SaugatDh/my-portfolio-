@@ -1,10 +1,5 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
-*/
 import React from 'react';
 import Header from './Header';
-import Nav from './Nav';
 import Footer from './Footer';
 import ThemeToggle from './ThemeToggle';
 
@@ -14,15 +9,14 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <>
+    <div className="min-h-screen flex flex-col px-4 sm:px-6 py-8 sm:py-12">
       <ThemeToggle />
-      <div className="content-wrapper">
+      <div className="w-full max-w-[95%] mx-auto flex-grow flex flex-col">
         <Header />
-        <Nav />
-        <main>{children}</main>
+        <main className="flex-grow">{children}</main>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

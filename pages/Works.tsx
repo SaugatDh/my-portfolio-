@@ -6,181 +6,106 @@ import AnimatedSection from '../components/AnimatedSection';
 
 const Works = () => {
   return (
-    <AnimatedSection>
-      <h2>My Works</h2>
-      <p>
-        A curated selection of my projects. Each one represents a challenge I
-        was excited to solve and a story of growth.
-      </p>
+    <AnimatedSection className="max-w-[95%] mx-auto">
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-medium mb-6">My Works</h2>
+        <p className="text-[var(--text-secondary)] text-xl max-w-3xl mx-auto">
+          A curated selection of my projects. Each one represents a challenge I
+          was excited to solve and a story of growth.
+        </p>
+      </div>
 
-      <ul className="project-list">
-        <li>
-          <img
-            src="./placeholder-ecommerce.jpg"
-            alt="MeroShop E-commerce Platform"
-            className="project-image"
-            loading="lazy"
-          />
-          <h3>
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+        {[
+          {
+            title: "MeroShop E-commerce Platform",
+            img: "./placeholder-ecommerce.jpg",
+            link: "https://github.com/SaugatDh/MeroShop",
+            desc: "A full-featured e-commerce platform built with the Laravel framework, demonstrating backend capabilities and database management.",
+            tech: "Laravel, PHP, MySQL"
+          },
+          {
+            title: "AI Document Parser",
+            img: "./placeholder-document.jpg",
+            link: "https://github.com/SaugatDh/document-parser",
+            desc: "An AI-powered tool that uses a fine-tuned YOLOv8 model to detect and extract layout components from documents.",
+            tech: "Python, YOLOv8, AI"
+          },
+          {
+            title: "Ausadhi AI: Medical Assistant",
+            img: "./placeholder-medical.jpg",
+            link: "https://github.com/SaugatDh/Ausadhi-AI",
+            desc: "An AI-powered project for medical applications.",
+            tech: "AI, Machine Learning, Medical Data"
+          },
+          {
+            title: "NLP Chatbot",
+            img: "./placeholder-chatbot.jpg",
+            link: "https://github.com/SaugatDh/chatbot",
+            desc: "A chatbot leveraging natural language processing to understand and respond to user queries.",
+            tech: "Python, NLTK, Machine Learning"
+          },
+          {
+            title: "Learning Management System",
+            img: "./placeholder-lms.jpg",
+            link: "https://github.com/SaugatDh/LMS",
+            desc: "A comprehensive platform for online learning and course management.",
+            tech: "React, Node.js, MongoDB"
+          },
+          {
+            title: "Resume Information Extractor",
+            img: "./placeholder-resume.jpg",
+            link: "https://github.com/SaugatDh/Resume-Info-Extraction",
+            desc: "An intelligent tool for parsing and extracting key information from resumes.",
+            tech: "Python, NLP, AI"
+          },
+          {
+            title: "Smart Farm IoT Solution",
+            img: "./placeholder-iot-farm.jpg",
+            link: "https://github.com/SaugatDh/smart-farm-",
+            desc: "An IoT-based system for monitoring and automating farm activities.",
+            tech: "IoT, Arduino, Sensors"
+          },
+          {
+            title: "Smart Home Automation",
+            img: "./placeholder-iot-home.jpg",
+            link: "https://github.com/SaugatDh/Smarthome",
+            desc: "A project to automate and control home appliances remotely.",
+            tech: "IoT, Embedded Systems"
+          }
+        ].map((project, index) => (
+          <li key={index} className="group flex flex-col">
             <a
-              href="https://github.com/SaugatDh/MeroShop"
+              href={project.link}
               target="_blank"
               rel="noopener noreferrer"
+              className="block overflow-hidden rounded-lg mb-5 bg-[var(--bg-secondary)]"
             >
-              MeroShop E-commerce Platform
+              <img
+                src={project.img}
+                alt={project.title}
+                className="w-full h-64 object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                loading="lazy"
+              />
             </a>
-          </h3>
-          <p>
-            A full-featured e-commerce platform built with the Laravel
-            framework, demonstrating backend capabilities and database
-            management.
-          </p>
-          <p className="project-tech">Technologies: Laravel, PHP, MySQL</p>
-        </li>
-        <li>
-          <img
-            src="./placeholder-document.jpg"
-            alt="AI Document Parser"
-            className="project-image"
-            loading="lazy"
-          />
-          <h3>
-            <a
-              href="https://github.com/SaugatDh/document-parser"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              AI Document Parser
-            </a>
-          </h3>
-          <p>
-            An AI-powered tool that uses a fine-tuned YOLOv8 model to detect and
-            extract layout components from documents.
-          </p>
-          <p className="project-tech">Technologies: Python, YOLOv8, AI</p>
-        </li>
-        <li>
-          <img
-            src="./placeholder-medical.jpg"
-            alt="Ausadhi AI: Medical Assistant"
-            className="project-image"
-            loading="lazy"
-          />
-          <h3>
-            <a
-              href="https://github.com/SaugatDh/Ausadhi-AI"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ausadhi AI: Medical Assistant
-            </a>
-          </h3>
-          <p>An AI-powered project for medical applications.</p>
-          <p className="project-tech">
-            Technologies: AI, Machine Learning, Medical Data
-          </p>
-        </li>
-        <li>
-          <img
-            src="./placeholder-chatbot.jpg"
-            alt="NLP Chatbot"
-            className="project-image"
-            loading="lazy"
-          />
-          <h3>
-            <a
-              href="https://github.com/SaugatDh/chatbot"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              NLP Chatbot
-            </a>
-          </h3>
-          <p>
-            A chatbot leveraging natural language processing to understand
-            and respond to user queries.
-          </p>
-          <p className="project-tech">
-            Technologies: Python, NLTK, Machine Learning
-          </p>
-        </li>
-        <li>
-          <img
-            src="./placeholder-lms.jpg"
-            alt="Learning Management System"
-            className="project-image"
-            loading="lazy"
-          />
-          <h3>
-            <a
-              href="https://github.com/SaugatDh/LMS"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning Management System
-            </a>
-          </h3>
-          <p>A comprehensive platform for online learning and course management.</p>
-          <p className="project-tech">Technologies: React, Node.js, MongoDB</p>
-        </li>
-  
-        <li>
-          <img
-            src="./placeholder-resume.jpg"
-            alt="Resume Information Extractor"
-            className="project-image"
-            loading="lazy"
-          />
-          <h3>
-            <a
-              href="https://github.com/SaugatDh/Resume-Info-Extraction"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Resume Information Extractor
-            </a>
-          </h3>
-          <p>An intelligent tool for parsing and extracting key information from resumes.</p>
-          <p className="project-tech">Technologies: Python, NLP, AI</p>
-        </li>
-        <li>
-          <img
-            src="./placeholder-iot-farm.jpg"
-            alt="Smart Farm IoT Solution"
-            className="project-image"
-            loading="lazy"
-          />
-          <h3>
-            <a
-              href="https://github.com/SaugatDh/smart-farm-"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Smart Farm IoT Solution
-            </a>
-          </h3>
-          <p>An IoT-based system for monitoring and automating farm activities.</p>
-          <p className="project-tech">Technologies: IoT, Arduino, Sensors</p>
-        </li>
-        <li>
-          <img
-            src="./placeholder-iot-home.jpg"
-            alt="Smart Home Automation"
-            className="project-image"
-            loading="lazy"
-          />
-          <h3>
-            <a
-              href="https://github.com/SaugatDh/Smarthome"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Smart Home Automation
-            </a>
-          </h3>
-          <p>A project to automate and control home appliances remotely.</p>
-          <p className="project-tech">Technologies: IoT, Embedded Systems</p>
-        </li>
+            <h3 className="text-2xl font-medium mb-3">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--text-secondary)] transition-colors"
+              >
+                {project.title}
+              </a>
+            </h3>
+            <p className="text-[var(--text-secondary)] text-lg mb-4 flex-grow leading-relaxed">
+              {project.desc}
+            </p>
+            <p className="text-sm text-[var(--text-tertiary)] font-medium">
+              {project.tech}
+            </p>
+          </li>
+        ))}
       </ul>
     </AnimatedSection>
   );
