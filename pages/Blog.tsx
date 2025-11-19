@@ -24,8 +24,8 @@ const Blog = () => {
   return (
     <AnimatedSection className="max-w-4xl mx-auto">
       <div className="text-center mb-20">
-        <h2 className="text-5xl font-medium mb-6">My Writings</h2>
-        <p className="text-[var(--text-secondary)] text-xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-6">My Writings</h2>
+        <p className="text-base sm:text-lg text-[var(--text-secondary)]">
           A collection of my thoughts, tutorials, and explorations in the world of
           technology.
         </p>
@@ -36,11 +36,11 @@ const Blog = () => {
           <li key={post.title} className="flex flex-col border-b border-[var(--border-light)] pb-16 last:border-0">
             <p className="text-sm text-[var(--text-tertiary)] mb-3">{post.date}</p>
             <a href="#" className="group">
-              <h3 className="text-2xl font-medium mb-4 group-hover:text-[var(--text-secondary)] transition-colors">
+              <h3 className="text-lg sm:text-xl font-medium mb-4 group-hover:text-[var(--text-secondary)] transition-colors">
                 {post.title}
               </h3>
             </a>
-            <p className="text-[var(--text-secondary)] text-lg mb-6 leading-relaxed">{post.excerpt}</p>
+            <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-6 leading-relaxed">{post.excerpt}</p>
             <div className="flex flex-wrap gap-3 mt-auto">
               {post.tags.map((tag) => (
                 <span key={tag} className="text-sm font-medium px-3 py-1.5 bg-[var(--bg-secondary)] text-[var(--text-secondary)] rounded">

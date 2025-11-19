@@ -8,8 +8,8 @@ const Works = () => {
   return (
     <AnimatedSection className="max-w-[95%] mx-auto">
       <div className="text-center mb-16">
-        <h2 className="text-5xl font-medium mb-6">My Works</h2>
-        <p className="text-[var(--text-secondary)] text-xl max-w-3xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-6">My Works</h2>
+        <p className="text-base sm:text-lg text-[var(--text-secondary)] mb-10 max-w-2xl mx-auto leading-relaxed">
           A curated selection of my projects. Each one represents a challenge I
           was excited to solve and a story of growth.
         </p>
@@ -88,7 +88,7 @@ const Works = () => {
                 loading="lazy"
               />
             </a>
-            <h3 className="text-2xl font-medium mb-3">
+            <h3 className="text-lg sm:text-xl font-medium mb-3">
               <a
                 href={project.link}
                 target="_blank"
@@ -98,7 +98,7 @@ const Works = () => {
                 {project.title}
               </a>
             </h3>
-            <p className="text-[var(--text-secondary)] text-lg mb-4 flex-grow leading-relaxed">
+            <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-4 flex-grow leading-relaxed">
               {project.desc}
             </p>
             <p className="text-sm text-[var(--text-tertiary)] font-medium">

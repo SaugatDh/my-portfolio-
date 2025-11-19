@@ -99,69 +99,64 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        {isMenuOpen && (
-          <>
-            {/* Backdrop */}
-            <div
-              className="fixed inset-0 bg-black bg-opacity-50 z-40"
+        {/* Mobile Menu (Side Drawer) */}
+        <div
+          className={`sm:hidden absolute top-full right-0 mt-2 w-64 bg-[var(--bg-secondary)] rounded-lg shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <nav
+            aria-label="Main Navigation"
+            className="flex flex-col gap-4 p-6 text-base font-medium text-[var(--text-secondary)]"
+          >
+            <NavLink
+              to="/"
+              end
               onClick={closeMenu}
-            />
-
-            {/* Menu */}
-            <nav
-              aria-label="Main Navigation"
-              className="absolute top-full right-0 mt-2 bg-[var(--bg-secondary)] rounded-lg shadow-lg p-6 flex flex-col gap-4 text-base font-medium text-[var(--text-secondary)] z-50 min-w-[200px]"
+              className={({ isActive }) =>
+                `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
+              }
             >
-              <NavLink
-                to="/"
-                end
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
-                }
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/about"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
-                }
-              >
-                About
-              </NavLink>
-              <NavLink
-                to="/works"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
-                }
-              >
-                Works
-              </NavLink>
-              <NavLink
-                to="/blog"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
-                }
-              >
-                Blog
-              </NavLink>
-              <NavLink
-                to="/contact"
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
-                }
-              >
-                Contact
-              </NavLink>
-            </nav>
-          </>
-        )}
+              Home
+            </NavLink>
+            <NavLink
+              to="/about"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
+              }
+            >
+              About
+            </NavLink>
+            <NavLink
+              to="/works"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
+              }
+            >
+              Works
+            </NavLink>
+            <NavLink
+              to="/blog"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
+              }
+            >
+              Blog
+            </NavLink>
+            <NavLink
+              to="/contact"
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                `hover:text-[var(--text-primary)] transition-colors py-2 ${isActive ? 'text-[var(--text-primary)]' : ''}`
+              }
+            >
+              Contact
+            </NavLink>
+          </nav>
+        </div>
       </div>
     </header>
   );

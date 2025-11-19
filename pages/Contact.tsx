@@ -24,8 +24,8 @@ const Contact = () => {
   return (
     <AnimatedSection className="max-w-3xl mx-auto">
       <div className="text-center mb-16">
-        <h2 className="text-5xl font-medium mb-6">Get in Touch</h2>
-        <p className="text-[var(--text-secondary)] text-xl leading-relaxed">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-6">Get in Touch</h2>
+        <p className="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
           I'm always interested in hearing about new opportunities and projects.
           Whether you have a question or just want to say hi, feel free to reach
           out.
@@ -40,7 +40,7 @@ const Contact = () => {
             id="name"
             name="name"
             required
-            className="w-full px-5 py-4 bg-transparent border border-[var(--border-light)] rounded-lg focus:outline-none focus:border-[var(--text-primary)] transition-colors text-lg"
+            className="w-full px-5 py-4 bg-transparent border border-[var(--border-light)] rounded-lg focus:outline-none focus:border-[var(--text-primary)] transition-colors text-base sm:text-lg"
           />
         </div>
         <div className="flex flex-col gap-3">
@@ -50,7 +50,7 @@ const Contact = () => {
             id="email"
             name="email"
             required
-            className="w-full px-5 py-4 bg-transparent border border-[var(--border-light)] rounded-lg focus:outline-none focus:border-[var(--text-primary)] transition-colors text-lg"
+            className="w-full px-5 py-4 bg-transparent border border-[var(--border-light)] rounded-lg focus:outline-none focus:border-[var(--text-primary)] transition-colors text-base sm:text-lg"
           />
         </div>
         <div className="flex flex-col gap-3">
@@ -60,24 +60,24 @@ const Contact = () => {
             name="message"
             rows={6}
             required
-            className="w-full px-5 py-4 bg-transparent border border-[var(--border-light)] rounded-lg focus:outline-none focus:border-[var(--text-primary)] transition-colors resize-y min-h-[150px] text-lg"
+            className="w-full px-5 py-4 bg-transparent border border-[var(--border-light)] rounded-lg focus:outline-none focus:border-[var(--text-primary)] transition-colors resize-y min-h-[150px] text-base sm:text-lg"
           ></textarea>
         </div>
         <button
           type="submit"
-          className="w-full sm:w-auto px-10 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-lg font-medium text-lg hover:opacity-90 transition-opacity"
+          className="w-full sm:w-auto px-10 py-4 bg-[var(--text-primary)] text-[var(--bg-primary)] rounded-lg font-medium text-base sm:text-lg hover:opacity-90 transition-opacity"
         >
           Send Message
         </button>
         {status && (
-          <div id="form-status" className="text-center text-green-600 dark:text-green-400 font-medium mt-6 text-lg" aria-live="polite">
+          <div id="form-status" className="text-center text-green-600 dark:text-green-400 font-medium mt-6 text-base sm:text-lg" aria-live="polite">
             {status}
           </div>
         )}
       </form>
 
       <div className="text-center">
-        <h3 className="text-xl font-medium mb-8">Or connect with me on</h3>
+        <h3 className="text-lg sm:text-xl font-medium mb-8">Or connect with me on</h3>
         <ul className="flex justify-center gap-10">
           <li>
             <a
