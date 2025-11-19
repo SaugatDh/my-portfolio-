@@ -16,7 +16,7 @@ const Header = () => {
         />
         <h1 className="text-xl font-semibold tracking-tight">Saugat Dhungana</h1>
       </div>
-      <nav aria-label="Main Navigation" className="flex gap-6 text-sm font-medium text-[var(--text-secondary)]">
+      <nav aria-label="Main Navigation" className="flex gap-6 text-base font-medium text-[var(--text-secondary)]">
         <NavLink
           to="/"
           end

@@ -12,8 +12,8 @@
 }
 
 :root {
-  font-size: 16px;
-  /* Reset to standard size (80% of previous 20px) */
+  font-size: 19px;
+  /* Scaled to match 120% zoom preference */
   /* Softer Light Mode */
   --bg-primary: #fcfcfc;
   /* Slightly off-white */
