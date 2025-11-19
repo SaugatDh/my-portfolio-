@@ -1,7 +1,6 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
-import { Buffer } from 'buffer';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');

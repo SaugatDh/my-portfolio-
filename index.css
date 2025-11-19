@@ -25,6 +25,12 @@
   /* Gray-600 */
   --border-light: #e5e7eb;
   /* Gray-200 */
+  --text-link: #4f46e5;
+  /* Indigo-600 for links */
+  --text-link-hover: #6366f1;
+  /* Indigo-500 on hover */
+  --code-bg: #e5e7eb;
+  /* Light gray for code background */
 }
 
 /* Mobile font size adjustment (phones) */
@@ -55,6 +61,12 @@
   /* Light gray text */
   --border-light: #404040;
   /* Gray border */
+  --text-link: #818cf8;
+  /* Indigo-300 for dark mode links */
+  --text-link-hover: #a5b4fc;
+  /* Indigo-200 on hover */
+  --code-bg: #4b5563;
+  /* Gray-600 for dark mode code background */
 }
 
 body {

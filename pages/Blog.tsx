@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
 */
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
 import { getAllBlogPosts } from '../src/utils/blogLoader';
 
@@ -35,11 +36,11 @@ const Blog = () => {
         {currentPosts.map((post) => (
           <li key={post.title} className="flex flex-col border-b border-[var(--border-light)] pb-16 last:border-0">
             <p className="text-sm text-[var(--text-tertiary)] mb-3">{post.date}</p>
-            <a href="#" className="group">
+            <Link to={`/blog/${post.slug}`} className="group">
               <h3 className="text-lg sm:text-xl font-medium mb-4 group-hover:text-[var(--text-secondary)] transition-colors">
                 {post.title}
               </h3>
-            </a>
+            </Link>
             <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-6 leading-relaxed">{post.excerpt}</p>
             <div className="flex flex-wrap gap-3 mt-auto">
               {post.tags.map((tag) => (
