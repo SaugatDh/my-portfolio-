@@ -101,8 +101,8 @@ const Header = () => {
 
         {/* Mobile Menu (Side Drawer) */}
         <div
-          className={`md:hidden absolute top-full right-0 mt-2 w-64 bg-[var(--bg-secondary)] rounded-lg shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          className={`md:hidden absolute top-full right-0 mt-2 w-64 bg-[var(--bg-secondary)] rounded-lg shadow-lg z-50 ${
+            isMenuOpen ? '' : 'hidden'
           }`}
         >
           <nav
