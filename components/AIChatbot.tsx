@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { createChatSession, sendMessageToGemini, hasApiKey } from '../services/geminiService';
+import { createChatSession, sendMessageToGemini, hasApiKey, getFallbackResponse } from '../services/geminiService';
 import { MessageRole, ChatMessage } from '../types';
 import { GenerateContentResponse } from '@google/genai';
 
@@ -11,13 +11,13 @@ const AIChatbot: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const hasKey = hasApiKey();
 
-  // Initialize chat session on mount if API key exists
   useEffect(() => {
-    if (hasApiKey()) {
+    if (hasKey) {
       createChatSession();
     }
-  }, []);
+  }, [hasKey]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -26,8 +26,6 @@ const AIChatbot: React.FC = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages, isOpen]);
-
-  if (!hasApiKey()) return null;
 
   const handleSend = async () => {
     if (!inputValue.trim()) return;
@@ -38,18 +36,18 @@ const AIChatbot: React.FC = () => {
     setIsTyping(true);
 
     try {
-      const stream = await sendMessageToGemini(userMessage.text);
-      
-      if (stream) {
-        let fullResponse = "";
-        // Add a placeholder message for the model
-        setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "", isLoading: true }]);
+      if (hasKey) {
+        const stream = await sendMessageToGemini(userMessage.text);
+        
+        if (stream) {
+          let fullResponse = "";
+          setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "", isLoading: true }]);
 
-        for await (const chunk of stream) {
-          const c = chunk as GenerateContentResponse;
-          if (c.text) {
-             fullResponse += c.text;
-             setMessages(prev => {
+          for await (const chunk of stream) {
+            const c = chunk as GenerateContentResponse;
+            if (c.text) {
+              fullResponse += c.text;
+              setMessages(prev => {
                 const newMessages = [...prev];
                 const lastMsg = newMessages[newMessages.length - 1];
                 if (lastMsg.role === MessageRole.MODEL) {
@@ -57,15 +55,19 @@ const AIChatbot: React.FC = () => {
                     lastMsg.isLoading = false;
                 }
                 return newMessages;
-             });
+              });
+            }
           }
+        } else {
+          setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "Sorry, I'm having trouble connecting right now." }]);
         }
       } else {
-         setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "Sorry, I'm having trouble connecting right now." }]);
+        const fallbackResponse = await getFallbackResponse(userMessage.text);
+        setMessages(prev => [...prev, { role: MessageRole.MODEL, text: fallbackResponse }]);
       }
     } catch (error) {
       console.error("Chat error:", error);
-      setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "An error occurred. Please try again." }]);
+      setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "Unable to connect. Please try again later." }]);
     } finally {
       setIsTyping(false);
     }
@@ -76,7 +78,10 @@ const AIChatbot: React.FC = () => {
       {isOpen && (
         <div className="mb-4 w-80 sm:w-96 bg-surface border border-border rounded-lg shadow-xl overflow-hidden flex flex-col h-[500px] transition-all duration-300 ease-out animate-fade-in-up">
           <div className="bg-foreground p-4 flex justify-between items-center">
-            <h3 className="text-background font-mono text-sm font-bold">AI Assistant</h3>
+            <div className="flex items-center gap-2">
+              <h3 className="text-background font-mono text-sm font-bold">AI Assistant</h3>
+              <span className={`w-2 h-2 rounded-full ${hasKey ? 'bg-green-400' : 'bg-red-400'}`} title={hasKey ? 'Online' : 'Offline - Using cached responses'}></span>
+            </div>
             <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>

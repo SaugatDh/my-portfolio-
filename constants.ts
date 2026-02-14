@@ -178,3 +178,26 @@ Languages: ${LANGUAGES.map(l => `${l.name} (${l.proficiency})`).join(', ')}
 
 Interests: Building scalable AI systems, OCR, RAG pipelines, NLP, and integrating unstructured data.
 `;
+
+export const FAQ_ANSWERS: Record<string, string> = {
+  skills: `Saugat's skills include: ${SKILLS.join(', ')}. His core expertise is in AI/ML, NLP, and full-stack development with Python, TensorFlow, PyTorch, React Native, and LangChain.`,
+  
+  projects: `Saugat has built several projects:\n\n1. **Ausadhi AI** - AI-powered medicine label extraction using OCR and NLP\n2. **Smart Farm (IoT)** - Award-winning automated farming system (DELTA Hackathon 2024)\n3. **Fine-tuned NLLB Translator** - Nepali to English translation model on Hugging Face\n4. **RAG & Vector Search** - Retrieval-Augmented Generation experiments with LangChain and Pinecone`,
+  
+  experience: `Saugat's experience includes:\n\n1. **AI Engineer at Ausadhi AI** (Jan 2023 - Jul 2023): Built an AI-powered mobile system for medicine label extraction using OCR and NLP.\n\n2. **AI Intern at IOXET Nepal** (Nov 2025 - Present): Working on Vector Databases, LangChain, LLM Fine-tuning, ASR, TTS, and translation pipelines.`,
+  
+  education: `Saugat's education:\n\n1. **Bachelors in Computer Engineering**: Madan Bhandari College of Engineering (Apr 2020 - Oct 2025)\n\n2. **Technical Education in Computer Engineering**: Shree Janata Secondary School (Apr 2016 - Apr 2020)`,
+  
+  contact: `You can reach Saugat at:\n\n- **Email**: saugatdhungana746@gmail.com\n- **GitHub**: https://github.com/SaugatDh\n- **LinkedIn**: https://linkedin.com/in/saugat-dhungana-41899129a\n- **Website**: https://www.saugat-dhungana.com.np`,
+  
+  default: `Thanks for your interest in Saugat's profile! I'm his AI assistant, but I'm currently running in offline mode (no API key configured). 
+
+You can ask me about his:
+- **Skills** - Technical expertise and technologies
+- **Projects** - Notable work and implementations
+- **Experience** - Work history and roles
+- **Education** - Academic background
+- **Contact** - How to reach out
+
+Or feel free to email him directly at saugatdhungana746@gmail.com`
+};
