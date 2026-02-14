@@ -193,11 +193,11 @@ export const FAQ_ANSWERS: Record<string, string> = {
   default: `Thanks for your interest in Saugat's profile! I'm his AI assistant, but I'm currently running in offline mode (no API key configured). 
 
 You can ask me about his:
-- **Skills** - Technical expertise and technologies
-- **Projects** - Notable work and implementations
-- **Experience** - Work history and roles
-- **Education** - Academic background
-- **Contact** - How to reach out
+- Skills - Technical expertise and technologies
+- Projects - Notable work and implementations
+- Experience - Work history and roles
+- Education - Academic background
+- Contact - How to reach out
 
 Or feel free to email him directly at saugatdhungana746@gmail.com`
 };
