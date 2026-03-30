@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import { createServer as createViteServer } from "vite";
 import path from "path";
-import { Groq } from "groq-sdk";
+import { Groq } from "groq";
 import dotenv from "dotenv";
 import { prisma, ensureSeeded } from "./database";
 import { supabaseAdmin } from "./supabase";
