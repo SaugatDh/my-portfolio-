@@ -14,8 +14,6 @@ RUN npm run build
 # Stage 3: Production
 FROM node:20 AS runner
 WORKDIR /app
-RUN groupadd --system --gid 1001 nodejs
-RUN useradd --system --uid 1001 nodejs
 
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
@@ -35,7 +33,6 @@ COPY --from=builder /app/components ./components
 ENV NODE_ENV=production
 ENV PORT=3000
 
-USER nodejs
 EXPOSE 3000
 
 CMD ["npx", "tsx", "server.ts"]
