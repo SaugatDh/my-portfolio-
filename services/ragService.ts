@@ -160,7 +160,8 @@ export const deleteFromPinecone = async (id: string) => {
 
   try {
     const index = pinecone.index(indexName);
-    await index.deleteOne(id);
+    const ns = index.namespace('');
+    await ns.deleteOne(id as any);
     console.log('Deleted from Pinecone:', id);
     return true;
   } catch (error) {
@@ -189,11 +190,12 @@ export const deleteAllFromPinecone = async () => {
     }
 
     const index = pinecone.index(indexName);
+    const ns = index.namespace('');
     
     try {
-      await index.delete1({ deleteAll: true });
+      await ns.deleteAll({ deleteAll: true } as any);
     } catch (e1) {
-      console.log('delete1 failed, trying describeIndex for host...');
+      console.log('namespace deleteAll failed, trying REST API...');
       const desc = await pinecone.describeIndex(indexName);
       const host = desc.host;
       

@@ -711,7 +711,7 @@ async function startServer() {
   // UPDATE single RAG content section (public)
   app.put("/api/admin/rag-content/:category", async (req: Request, res: Response) => {
     try {
-      const { category } = req.params;
+      const category = String(req.params.category);
       const { content } = req.body;
 
       if (!content || typeof content !== "string") {
@@ -802,7 +802,7 @@ async function startServer() {
   // DELETE RAG content section (public)
   app.delete("/api/admin/rag-content/:category", async (req: Request, res: Response) => {
     try {
-      const { category } = req.params;
+      const category = String(req.params.category);
 
       await prisma.ragContent.delete({
         where: { category }
@@ -1030,7 +1030,7 @@ Rules:
 
       const response = await groqClient.chat.completions.create({
         model: "llama-3.1-8b-instant",
-        messages: messagesArray,
+        messages: messagesArray as any,
         max_tokens: 512,
         temperature: 0.7,
       });
