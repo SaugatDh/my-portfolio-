@@ -16,6 +16,7 @@
     "@supabase/supabase-js": "^2.100.1",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.0",
     "express": "^4.21.0",
     "groq": "^3.71.0",
     "react": "^19.2.4",
