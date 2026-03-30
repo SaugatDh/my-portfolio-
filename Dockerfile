@@ -5,6 +5,9 @@ WORKDIR /app
 # Copy package files
 COPY package.json package-lock.json* ./
 
+# Install specific Prisma version
+RUN npm install prisma@5.22.0 @prisma/client@5.22.0
+
 # Install dependencies
 RUN npm ci
 
@@ -16,8 +19,8 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY prisma ./prisma
 COPY package.json package-lock.json* ./
 
-# Generate Prisma client
-RUN npx prisma generate
+# Generate Prisma client with specific version
+RUN npm install prisma@5.22.0 @prisma/client@5.22.0 && npx prisma generate
 
 # Copy source files
 COPY . .
