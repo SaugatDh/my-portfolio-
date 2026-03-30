@@ -1,11 +1,14 @@
-# Stage 1: Install all dependencies
+# Stage 1: Install all dependencies and generate Prisma
 FROM node:20-alpine AS deps
 WORKDIR /app
 
 # Copy package files
 COPY package.json package-lock.json* ./
 
-# Install all dependencies including Prisma
+# Copy prisma folder BEFORE generating
+COPY prisma ./prisma
+
+# Install all dependencies and generate Prisma client
 RUN npm install && \
     npm install prisma@5.22.0 @prisma/client@5.22.0 && \
     npx prisma generate
