@@ -16,7 +16,7 @@ RUN rm -rf node_modules/.prisma
 
 # Install all dependencies
 RUN npm install --force && \
-    npm install prisma@5.22.0 @prisma/client@5.22.0 groq-sdk@0.5.0 && \
+    npm install prisma@5.22.0 @prisma/client@5.22.0 groq-sdk@1.1.1 && \
     npx prisma generate
 
 # Stage 2: Build
