@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogPost, Project, Experience as ExperienceType } from "../types";
+import { apiFetch } from "../lib/api";
 
 interface BlogFormData {
   title: string;
@@ -128,7 +129,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("/api/blog");
+      const response = await apiFetch("/api/blog");
       const data = await response.json();
       setPosts(data);
     } catch (err) {
@@ -140,7 +141,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("/api/projects");
+      const response = await apiFetch("/api/projects");
       const data = await response.json();
       setProjects(data);
     } catch (err) {
@@ -150,7 +151,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchExperiences = async () => {
     try {
-      const response = await fetch("/api/experience");
+      const response = await apiFetch("/api/experience");
       const data = await response.json();
       setExperiences(data);
     } catch (err) {
@@ -160,7 +161,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchTechStacks = async () => {
     try {
-      const response = await fetch("/api/tech-stacks");
+      const response = await apiFetch("/api/tech-stacks");
       const data = await response.json();
       setTechStacks(data);
     } catch (err) {
@@ -376,7 +377,7 @@ const AdminDashboard: React.FC = () => {
   const handleLoadRAGSections = async () => {
     setRagSyncing(true);
     try {
-      const response = await fetch("/api/admin/rag-content");
+      const response = await apiFetch("/api/admin/rag-content");
       const data = await response.json();
       const newSections = (data || []).map((s: any) => ({ ...s, originalContent: s.content }));
       setRagSections(newSections);
@@ -392,14 +393,14 @@ const AdminDashboard: React.FC = () => {
   const handleSyncFromDB = async () => {
     setRagSyncing(true);
     try {
-      const response = await fetch("/api/admin/rag-sync", {
+      const response = await apiFetch("/api/admin/rag-sync", {
         method: "POST"
       });
       const data = await response.json();
       
       if (response.ok) {
         // Reload sections with original content tracking
-        const loadResponse = await fetch("/api/admin/rag-content");
+        const loadResponse = await apiFetch("/api/admin/rag-content");
         const sectionsData = await loadResponse.json();
         const newSections = (sectionsData || []).map((s: any) => ({ ...s, originalContent: s.content }));
         setRagSections(newSections);
@@ -456,7 +457,7 @@ const AdminDashboard: React.FC = () => {
     }
 
     try {
-      const response = await fetch("/api/admin/rag-content", {
+      const response = await apiFetch("/api/admin/rag-content", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -499,7 +500,7 @@ const AdminDashboard: React.FC = () => {
     if (!window.confirm("Delete ALL Pinecone vectors? This cannot be undone.")) return;
     
     try {
-      const response = await fetch("/api/admin/rag-pinecone/all", {
+      const response = await apiFetch("/api/admin/rag-pinecone/all", {
         method: "DELETE"
       });
       const data = await response.json();
@@ -596,7 +597,7 @@ const AdminDashboard: React.FC = () => {
     const sessionId = localStorage.getItem("adminSessionId");
 
     try {
-      const response = await fetch("/api/admin/tech-stacks", {
+      const response = await apiFetch("/api/admin/tech-stacks", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

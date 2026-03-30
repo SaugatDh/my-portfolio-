@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Project } from "../types";
+import { apiFetch } from "../lib/api";
 
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/projects")
+    apiFetch("/api/projects")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);

@@ -4,6 +4,7 @@ import { BlogPost } from "../types";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import AIChatbot from "./AIChatbot";
+import { apiFetch } from "../lib/api";
 
 const BlogPage: React.FC = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const BlogPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/blog")
+    apiFetch("/api/blog")
       .then((res) => res.json())
       .then((data) => {
         setPosts(data);

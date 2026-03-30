@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Experience as ExperienceType } from "../types";
+import { apiFetch } from "../lib/api";
 
 interface TechStack {
   id: number;
@@ -13,13 +14,13 @@ const Experience: React.FC = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch("/api/experience")
+      apiFetch("/api/experience")
         .then((res) => res.json())
         .catch((err) => {
           console.error("Failed to fetch experience:", err);
           return [];
         }),
-      fetch("/api/tech-stacks")
+      apiFetch("/api/tech-stacks")
         .then((res) => res.json())
         .catch((err) => {
           console.error("Failed to fetch tech stacks:", err);

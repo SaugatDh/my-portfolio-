@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginCredentials } from "../types";
+import { apiFetch } from "../lib/api";
 
 const AdminLogin: React.FC = () => {
   const [credentials, setCredentials] = useState<LoginCredentials>({
@@ -22,7 +23,7 @@ const AdminLogin: React.FC = () => {
     setError("");
 
     try {
-      const response = await fetch("/api/auth/login", {
+      const response = await apiFetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials),

@@ -1,6 +1,8 @@
+import { apiFetch } from "../lib/api";
+
 export async function sendMessageToGroq(message: string, conversationHistory: {role: string, content: string, response?: string}[] = []): Promise<string> {
   try {
-    const response = await fetch("/api/chat", {
+    const response = await apiFetch("/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

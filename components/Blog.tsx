@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BlogPost } from "../types";
+import { apiFetch } from "../lib/api";
 
 const Blog: React.FC = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    fetch("/api/blog")
+    apiFetch("/api/blog")
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((err) => console.error("Failed to fetch blog posts:", err));
