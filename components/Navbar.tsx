@@ -31,6 +31,18 @@ const Navbar: React.FC = () => {
             <button onClick={() => scrollToSection('projects')} className="hover:text-primary transition-colors">Projects</button>
             <button onClick={() => scrollToSection('experience')} className="hover:text-primary transition-colors">Experience</button>
             <button onClick={() => scrollToSection('blog')} className="hover:text-primary transition-colors">Writings</button>
+            <a 
+              href="/files/Saugat_Dhungana.pdf" 
+              download="Saugat_Dhungana_CV.pdf"
+              title="Download CV"
+              className="text-muted hover:text-primary transition-colors cursor-pointer"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </a>
             <button 
               onClick={() => scrollToSection('contact')} 
               className="px-4 py-2 bg-foreground text-background rounded hover:bg-primary hover:text-foreground transition-all duration-300 font-mono text-xs"
