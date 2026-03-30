@@ -8,8 +8,11 @@ COPY package.json package-lock.json* ./
 # Copy prisma folder BEFORE generating
 COPY prisma ./prisma
 
+# Remove node_modules to force fresh install (fixes Railway cache issue)
+RUN rm -rf node_modules
+
 # Install all dependencies and generate Prisma client
-RUN npm install && \
+RUN npm install --force && \
     npm install prisma@5.22.0 @prisma/client@5.22.0 && \
     npx prisma generate
 
