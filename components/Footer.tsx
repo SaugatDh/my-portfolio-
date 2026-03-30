@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             href={social.url} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-block text-muted hover:text-primary transition-all hover:-translate-y-1 transform duration-300"
+            className="text-muted hover:text-primary transition-colors hover:-translate-y-1 transform duration-300"
             aria-label={social.platform}
           >
             {social.platform === 'GitHub' && (
@@ -25,6 +25,9 @@ const Footer: React.FC = () => {
             )}
              {social.platform === 'Facebook' && (
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            )}
+            {social.platform === 'Website' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             )}
           </a>
         ))}

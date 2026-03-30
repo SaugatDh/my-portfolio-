@@ -1,5 +1,5 @@
 export interface Project {
-  id: number;
+  id: string;
   title: string;
   description: string;
   image: string;
@@ -12,6 +12,7 @@ export interface Experience {
   id: string;
   role: string;
   company: string;
+  location?: string;
   period: string;
   description: string;
   technologies: string[];
@@ -24,7 +25,6 @@ export interface BlogPost {
   date: string;
   readTime: string;
   slug: string;
-  content?: string;
 }
 
 export interface SocialLink {
@@ -34,8 +34,8 @@ export interface SocialLink {
 }
 
 export enum MessageRole {
-  USER = "user",
-  MODEL = "model",
+  USER = 'user',
+  MODEL = 'model'
 }
 
 export interface ChatMessage {
@@ -44,20 +44,24 @@ export interface ChatMessage {
   isLoading?: boolean;
 }
 
-// Admin Auth Types
-export interface AdminUser {
-  id: number;
-  username: string;
-  email: string;
+export interface Education {
+  id: string;
+  institution: string;
+  location: string;
+  period: string;
+  degree: string;
 }
 
-export interface AuthResponse {
-  success: boolean;
-  sessionId: string;
-  admin: AdminUser;
+export interface Award {
+  id: string;
+  title: string;
+  organization: string;
+  location: string;
+  year: string;
+  project?: string;
 }
 
-export interface LoginCredentials {
-  email: string;
-  password: string;
+export interface Language {
+  name: string;
+  proficiency: string;
 }

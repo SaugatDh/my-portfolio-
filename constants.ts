@@ -1,14 +1,15 @@
-import { Project, Experience, BlogPost, SocialLink } from './types';
+import { Project, Experience, BlogPost, SocialLink, Education, Award, Language } from './types';
 
 export const SOCIALS: SocialLink[] = [
   { platform: 'GitHub', url: 'https://github.com/SaugatDh', icon: 'github' },
   { platform: 'LinkedIn', url: 'https://linkedin.com/in/saugat-dhungana-41899129a', icon: 'linkedin' },
   { platform: 'Facebook', url: 'https://www.facebook.com/saugat201', icon: 'facebook' },
+  { platform: 'Website', url: 'https://www.saugat-dhungana.com.np', icon: 'globe' },
 ];
 
 export const PROJECTS: Project[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Ausadhi AI',
     description: 'An AI-powered mobile system for extracting and understanding medicine label data using OCR and NLP. Built to help users identify medication information instantly.',
     image: 'https://picsum.photos/600/400?grayscale',
@@ -17,7 +18,7 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/SaugatDh/Ausadhi-AI',
   },
   {
-    id: 2,
+    id: '2',
     title: 'Smart Farm (IoT)',
     description: 'Award-winning hardware project (DELTA Hackathon 2024). An automated farming system integrating sensors and data analysis for optimized agriculture.',
     image: 'https://picsum.photos/600/401?grayscale',
@@ -26,7 +27,7 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/SaugatDh/smart-farm-',
   },
   {
-    id: 3,
+    id: '3',
     title: 'Fine-tuned NLLB Translator',
     description: 'A fine-tuned NLLB (No Language Left Behind) model specifically optimized for Nepali to English translation tasks, hosted on Hugging Face.',
     image: 'https://picsum.photos/600/402?grayscale',
@@ -35,40 +36,34 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://huggingface.co/Saugat212/ne-en-nllb-model',
   },
   {
-    id: 4,
+    id: '4',
     title: 'RAG & Vector Search Experiments',
     description: 'Implementation of Retrieval-Augmented Generation using LangChain, ChromaDB, and Pinecone to build intelligent QA systems.',
     image: 'https://picsum.photos/600/403?grayscale',
     tags: ['LangChain', 'Pinecone', 'ChromaDB', 'Gemini API'],
     demoUrl: '#',
     repoUrl: 'https://github.com/SaugatDh',
-  },
+  }
 ];
 
 export const EXPERIENCE: Experience[] = [
   {
     id: '1',
-    role: 'AI Intern',
-    company: 'IOXET NP',
-    period: 'Nov 2025 - Present',
-    description: 'Working on advanced AI solutions involving Vector Databases (Pinecone, ChromaDB), Langchain, and LLM Fine-tuning. Implementing ASR, TTS, and translation pipelines.',
-    technologies: ['Python', 'LangChain', 'PyTorch', 'Prompt Engineering'],
+    role: 'AI Engineer',
+    company: 'Ausadhi AI',
+    location: 'Jhapa',
+    period: 'Jan 2023 - Jul 2023',
+    description: 'Designed and developed AausadiAI, an AI-powered mobile system for extracting and understanding medicine label data using OCR and NLP.',
+    technologies: ['React Native', 'Python', 'Flask', 'spaCy', 'PaddleOCR', 'MySQL', 'Pandas', 'NumPy']
   },
   {
     id: '2',
-    role: 'Developer',
-    company: 'Ausadhi AI',
-    period: 'Jan 2023 - Jul 2023',
-    description: 'Designed and developed an AI-powered mobile system for medicine label extraction. Implemented OCR pipelines using PaddleOCR and processed data with Pandas/NumPy.',
-    technologies: ['React Native', 'Python', 'Flask', 'PaddleOCR', 'MySQL'],
-  },
-  {
-    id: '3',
-    role: 'Computer Engineering Student',
-    company: 'Madan Bhandari College',
-    period: 'Apr 2020 - Oct 2025',
-    description: 'Completed Bachelors in Computer Engineering. Participated in AI/ML workshops and won the DELTA Hackathon 2024 Hardware category.',
-    technologies: ['C++', 'Python', 'System Design', 'IoT'],
+    role: 'AI Intern',
+    company: 'IOXET Nepal',
+    location: 'Kathmandu',
+    period: 'Nov 2025 - Present',
+    description: 'Working on advanced AI solutions involving Vector Databases (Pinecone, ChromaDB), Langchain, and LLM Fine-tuning. Implementing ASR, TTS, and translation pipelines.',
+    technologies: ['Pinecone', 'ChromDB', 'Embeddings', 'Langchain', 'Fine-tuning PyTorch', 'ASR', 'TTS', 'Translator', 'Prompt Engineering']
   },
 ];
 
@@ -79,7 +74,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'A comprehensive guide to connecting vector stores like ChromaDB with LLMs for context-aware data retrieval.',
     date: 'Dec 15, 2025',
     readTime: '10 min read',
-    slug: 'building-rag-pipelines',
+    slug: 'building-rag-pipelines'
   },
   {
     id: '2',
@@ -87,7 +82,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'Challenges and strategies in fine-tuning massive multilingual models for specific language pairs like Nepali-English.',
     date: 'Nov 20, 2025',
     readTime: '8 min read',
-    slug: 'finetuning-nllb-nepali',
+    slug: 'finetuning-nllb-nepali'
   },
   {
     id: '3',
@@ -95,12 +90,61 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: 'How to implement lightweight OCR solutions using PaddleOCR within a React Native environment.',
     date: 'Oct 05, 2025',
     readTime: '6 min read',
-    slug: 'optimizing-ocr-mobile',
-  },
+    slug: 'optimizing-ocr-mobile'
+  }
 ];
 
 export const SKILLS = [
-  "Python", "Machine Learning", "Deep Learning", "LangChain", "TensorFlow", "PyTorch", "React Native", "Django/Flask", "PostgreSQL", "Vector DBs", "Docker", "NLP"
+  "Frontend Development", "Backend Development", "IOT Development", "Python", "Machine Learning", "Deep Learning", "LangChain", "TensorFlow", "PyTorch", "React Native", "Django", "Flask", "PostgreSQL", "Vector DBs", "Docker", "NLP"
+];
+
+export const EDUCATION: Education[] = [
+  {
+    id: '1',
+    institution: 'Shree Janata Secondary School',
+    location: 'Gauradaha-4, Jhapa',
+    period: 'Apr 2016 - Apr 2020',
+    degree: 'Technical Education in Computer Engineering'
+  },
+  {
+    id: '2',
+    institution: 'Madan Bhandari College of Engineering',
+    location: 'Urlabari-03, Morang',
+    period: 'Apr 2020 - Oct 2025',
+    degree: 'Bachelors in Computer Engineering'
+  }
+];
+
+export const AWARDS: Award[] = [
+  {
+    id: '1',
+    title: 'DELTA Hackathon 2024 - Hardware',
+    organization: 'DELTA',
+    location: 'Dharan',
+    year: '2024',
+    project: 'Smart Farm'
+  }
+];
+
+export const CERTIFICATIONS = [
+  {
+    id: '1',
+    title: 'AI Workshop',
+    organization: 'MBCOE - Pi Innovation',
+    year: '2025'
+  },
+  {
+    id: '2',
+    title: 'Machine Learning by Tejash Katual',
+    organization: '7days (ITSNP)',
+    year: '2025'
+  }
+];
+
+export const LANGUAGES: Language[] = [
+  { name: 'English', proficiency: 'Professional Working' },
+  { name: 'Hindi', proficiency: 'Professional Working' },
+  { name: 'Nepali', proficiency: 'Native' }
 ];
 
 // System instruction for the Gemini Chatbot
@@ -110,12 +154,68 @@ Keep your answers professional, concise, and helpful.
 
 Context:
 Name: Saugat Dhungana
-Role: AI Engineer & Builder
+Role: Aspiring AI Engineer | Developer
 Location: New Baneshwor, Kathmandu
-Education: Bachelors in Computer Engineering (Madan Bhandari College of Engineering)
+Email: saugatdhungana746@gmail.com
+
+Education:
+- Technical Education in Computer Engineering: Shree Janata Secondary School (Apr 2016 - Apr 2020)
+- Bachelors in Computer Engineering: Madan Bhandari College of Engineering (Apr 2020 - Oct 2025)
+
 Skills: ${SKILLS.join(', ')}
-Experience: ${EXPERIENCE.map(e => `${e.role} at ${e.company} (${e.period}): ${e.description}`).join('; ')}
-Projects: ${PROJECTS.map(p => `${p.title}: ${p.description}`).join('; ')}
-Awards: Winner of DELTA Hackathon 2024 (Hardware Category) for Smart Farm project.
-Interests: Building scalable AI systems, OCR, RAG pipelines, and integrating unstructured data.
+
+Experience:
+${EXPERIENCE.map(e => `- ${e.role} at ${e.company} (${e.period}): ${e.description}`).join('\n')}
+
+Projects:
+${PROJECTS.map(p => `- ${p.title}: ${p.description}`).join('\n')}
+
+Awards & Certifications:
+${AWARDS.map(a => `- ${a.title} (${a.year})`).join('\n')}
+${CERTIFICATIONS.map(c => `- ${c.title} - ${c.organization} (${c.year})`).join('\n')}
+
+Languages: ${LANGUAGES.map(l => `${l.name} (${l.proficiency})`).join(', ')}
+
+Interests: Building scalable AI systems, OCR, RAG pipelines, NLP, and integrating unstructured data.
 `;
+
+export const FAQ_ANSWERS: Record<string, string> = {
+  skills: `Saugat's skills include: ${SKILLS.join(', ')}. His core expertise is in AI/ML, NLP, and full-stack development with Python, TensorFlow, PyTorch, React Native, and LangChain.`,
+  
+  projects: `Saugat has built several projects:
+
+1. Ausadhi AI - AI-powered medicine label extraction using OCR and NLP
+2. Smart Farm (IoT) - Award-winning automated farming system (DELTA Hackathon 2024)
+3. Fine-tuned NLLB Translator - Nepali to English translation model on Hugging Face
+4. RAG & Vector Search - Retrieval-Augmented Generation experiments with LangChain and Pinecone`,
+  
+  experience: `Saugat's experience includes:
+
+1. AI Engineer at Ausadhi AI (Jan 2023 - Jul 2023): Built an AI-powered mobile system for medicine label extraction using OCR and NLP.
+
+2. AI Intern at IOXET Nepal (Nov 2025 - Present): Working on Vector Databases, LangChain, LLM Fine-tuning, ASR, TTS, and translation pipelines.`,
+  
+  education: `Saugat's education:
+
+1. Bachelors in Computer Engineering: Madan Bhandari College of Engineering (Apr 2020 - Oct 2025)
+
+2. Technical Education in Computer Engineering: Shree Janata Secondary School (Apr 2016 - Apr 2020)`,
+  
+  contact: `You can reach Saugat at:
+
+- Email: saugatdhungana746@gmail.com
+- GitHub: https://github.com/SaugatDh
+- LinkedIn: https://linkedin.com/in/saugat-dhungana-41899129a
+- Website: https://www.saugat-dhungana.com.np`,
+  
+  default: `Thanks for your interest in Saugat's profile! I'm his AI assistant, but I'm currently running in offline mode (no API key configured). 
+
+You can ask me about his:
+- Skills - Technical expertise and technologies
+- Projects - Notable work and implementations
+- Experience - Work history and roles
+- Education - Academic background
+- Contact - How to reach out
+
+Or feel free to email him directly at saugatdhungana746@gmail.com`
+};

@@ -1,21 +1,26 @@
-import React, { useState, useRef, useEffect } from "react";
-import { MessageRole, ChatMessage } from "../types";
-import { sendMessageToGroq } from "../services/groqService";
+import React, { useState, useRef, useEffect } from 'react';
+import { createChatSession, sendMessageToGemini, hasApiKey, getFallbackResponse } from '../services/geminiService';
+import { MessageRole, ChatMessage } from '../types';
+import { GenerateContentResponse } from '@google/genai';
 
 const AIChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: MessageRole.MODEL,
-      text: "Hi! I'm Saugat. Ask me about my work, skills, projects, or experience!",
-    },
+    { role: MessageRole.MODEL, text: "Hi! I'm Saugat's AI assistant. Ask me anything about his work, skills, or projects." }
   ]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const hasKey = hasApiKey();
+
+  useEffect(() => {
+    if (hasKey) {
+      createChatSession();
+    }
+  }, [hasKey]);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -25,76 +30,44 @@ const AIChatbot: React.FC = () => {
   const handleSend = async () => {
     if (!inputValue.trim()) return;
 
-    const userMessage: ChatMessage = {
-      role: MessageRole.USER,
-      text: inputValue,
-    };
-    setMessages((prev) => [...prev, userMessage]);
-    setInputValue("");
+    const userMessage: ChatMessage = { role: MessageRole.USER, text: inputValue };
+    setMessages(prev => [...prev, userMessage]);
+    setInputValue('');
     setIsTyping(true);
 
-    // Casual chat responses for greetings
-    const lowerInput = inputValue.toLowerCase().trim();
-    const casualResponses: Record<string, string> = {
-      "hi": "Hey there! 👋 What would you like to know about me?",
-      "hello": "Hello! 😊 What can I help you with?",
-      "hey": "Hey! 👋 What's up?",
-      "how are you": "I'm doing great, thanks for asking! 😊 What about you?",
-      "who are you": "I'm Saugat! This is my AI chat. Ask me anything about my work, skills, or projects!",
-      "what's up": "Not much! Just chilling here. 😄 What do you want to know?",
-      "wassup": "Wassup! 😎 What's on your mind?",
-      "good morning": "Good morning! ☀️ Hope you're having a great day!",
-      "good afternoon": "Good afternoon! 🌤️ How can I help?",
-      "good evening": "Good evening! 🌙 What would you like to know?",
-    };
-
-    // Check for casual response
-    if (casualResponses[lowerInput]) {
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          { role: MessageRole.MODEL, text: casualResponses[lowerInput] },
-        ]);
-        setIsTyping(false);
-      }, 300);
-      return;
-    }
-
-    // Get last 5 user messages with their responses for context
-    const userMessages: {role: string, content: string, response?: string}[] = [];
-    const allMessages = messages.filter(m => m.role !== MessageRole.MODEL || m.text);
-    
-    for (let i = 0; i < allMessages.length - 1; i++) {
-      if (allMessages[i].role === MessageRole.USER) {
-        const nextMsg = allMessages[i + 1];
-        if (nextMsg && nextMsg.role === MessageRole.MODEL) {
-          userMessages.push({
-            role: MessageRole.USER,
-            content: allMessages[i].text,
-            response: nextMsg.text
-          });
-        }
-      }
-    }
-    
-    // Keep only last 5
-    const contextMessages = userMessages.slice(-5);
-
     try {
-      const response = await sendMessageToGroq(inputValue, contextMessages);
-      setMessages((prev) => [
-        ...prev,
-        { role: MessageRole.MODEL, text: response },
-      ]);
+      if (hasKey) {
+        const stream = await sendMessageToGemini(userMessage.text);
+        
+        if (stream) {
+          let fullResponse = "";
+          setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "", isLoading: true }]);
+
+          for await (const chunk of stream) {
+            const c = chunk as GenerateContentResponse;
+            if (c.text) {
+              fullResponse += c.text;
+              setMessages(prev => {
+                const newMessages = [...prev];
+                const lastMsg = newMessages[newMessages.length - 1];
+                if (lastMsg.role === MessageRole.MODEL) {
+                    lastMsg.text = fullResponse;
+                    lastMsg.isLoading = false;
+                }
+                return newMessages;
+              });
+            }
+          }
+        } else {
+          setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "Sorry, I'm having trouble connecting right now." }]);
+        }
+      } else {
+        const fallbackResponse = await getFallbackResponse(userMessage.text);
+        setMessages(prev => [...prev, { role: MessageRole.MODEL, text: fallbackResponse }]);
+      }
     } catch (error) {
       console.error("Chat error:", error);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: MessageRole.MODEL,
-          text: "Sorry, I encountered an error. Please try again.",
-        },
-      ]);
+      setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "Unable to connect. Please try again later." }]);
     } finally {
       setIsTyping(false);
     }
@@ -105,68 +78,39 @@ const AIChatbot: React.FC = () => {
       {isOpen && (
         <div className="mb-4 w-80 sm:w-96 bg-surface border border-border rounded-lg shadow-xl overflow-hidden flex flex-col h-[500px] transition-all duration-300 ease-out animate-fade-in-up">
           <div className="bg-foreground p-4 flex justify-between items-center">
-            <h3 className="text-background font-mono text-sm font-bold">
-              AI Assistant
-            </h3>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-gray-400 hover:text-white"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
+            <div className="flex items-center gap-2">
+              <h3 className="text-background font-mono text-sm font-bold">AI Assistant</h3>
+              <span className={`w-2 h-2 rounded-full ${hasKey ? 'bg-green-400' : 'bg-red-400'}`} title={hasKey ? 'Online' : 'Offline - Using cached responses'}></span>
+            </div>
+            <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
           </div>
-
+          
           <div className="flex-1 overflow-y-auto p-4 bg-background/50 space-y-4">
             {messages.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`flex ${msg.role === MessageRole.USER ? "justify-end" : "justify-start"}`}
-              >
-                <div
+              <div key={idx} className={`flex ${msg.role === MessageRole.USER ? 'justify-end' : 'justify-start'}`}>
+                <div 
                   className={`max-w-[85%] rounded-lg p-3 text-sm ${
-                    msg.role === MessageRole.USER
-                      ? "bg-foreground text-background"
-                      : "bg-surface border border-border text-foreground"
+                    msg.role === MessageRole.USER 
+                      ? 'bg-foreground text-background' 
+                      : 'bg-surface border border-border text-foreground'
                   }`}
                 >
-                  <p className="whitespace-pre-wrap leading-relaxed">
-                    {msg.text}
-                  </p>
+                  <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>
                 </div>
               </div>
             ))}
-            {isTyping && (
-              <div className="flex justify-start">
-                <div className="bg-surface border border-border rounded-lg p-3">
-                  <div className="flex space-x-1">
-                    <div
-                      className="w-2 h-2 bg-muted rounded-full animate-bounce"
-                      style={{ animationDelay: "0ms" }}
-                    ></div>
-                    <div
-                      className="w-2 h-2 bg-muted rounded-full animate-bounce"
-                      style={{ animationDelay: "150ms" }}
-                    ></div>
-                    <div
-                      className="w-2 h-2 bg-muted rounded-full animate-bounce"
-                      style={{ animationDelay: "300ms" }}
-                    ></div>
+            {isTyping && !messages[messages.length - 1]?.isLoading && (
+               <div className="flex justify-start">
+                  <div className="bg-surface border border-border rounded-lg p-3">
+                    <div className="flex space-x-1">
+                      <div className="w-2 h-2 bg-muted rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                      <div className="w-2 h-2 bg-muted rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                      <div className="w-2 h-2 bg-muted rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                    </div>
                   </div>
-                </div>
-              </div>
+               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
@@ -177,29 +121,16 @@ const AIChatbot: React.FC = () => {
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSend()}
+                onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                 placeholder="Ask about Saugat..."
                 className="flex-1 bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-foreground transition-colors text-foreground"
               />
-              <button
+              <button 
                 onClick={handleSend}
                 disabled={!inputValue.trim() || isTyping}
                 className="bg-foreground text-background p-2 rounded-md hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
             </div>
           </div>
@@ -212,34 +143,9 @@ const AIChatbot: React.FC = () => {
       >
         <span className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full border-2 border-surface"></span>
         {isOpen ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
         ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-          </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         )}
       </button>
     </div>
