@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { createChatSession, sendMessageToGemini, hasApiKey, getFallbackResponse } from '../services/geminiService';
 import { MessageRole, ChatMessage } from '../types';
-import { GenerateContentResponse } from '@google/genai';
+
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 const AIChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,14 +10,8 @@ const AIChatbot: React.FC = () => {
   ]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [history, setHistory] = useState<{role: string, content: string, response?: string}[]>([]);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const hasKey = hasApiKey();
-
-  useEffect(() => {
-    if (hasKey) {
-      createChatSession();
-    }
-  }, [hasKey]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -36,34 +30,19 @@ const AIChatbot: React.FC = () => {
     setIsTyping(true);
 
     try {
-      if (hasKey) {
-        const stream = await sendMessageToGemini(userMessage.text);
-        
-        if (stream) {
-          let fullResponse = "";
-          setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "", isLoading: true }]);
+      const response = await fetch(`${API_URL}/api/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: inputValue, history }),
+      });
 
-          for await (const chunk of stream) {
-            const c = chunk as GenerateContentResponse;
-            if (c.text) {
-              fullResponse += c.text;
-              setMessages(prev => {
-                const newMessages = [...prev];
-                const lastMsg = newMessages[newMessages.length - 1];
-                if (lastMsg.role === MessageRole.MODEL) {
-                    lastMsg.text = fullResponse;
-                    lastMsg.isLoading = false;
-                }
-                return newMessages;
-              });
-            }
-          }
-        } else {
-          setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "Sorry, I'm having trouble connecting right now." }]);
-        }
+      const data = await response.json();
+      
+      if (data.response) {
+        setMessages(prev => [...prev, { role: MessageRole.MODEL, text: data.response }]);
+        setHistory(prev => [...prev.slice(-5), { role: 'user', content: inputValue, response: data.response }]);
       } else {
-        const fallbackResponse = await getFallbackResponse(userMessage.text);
-        setMessages(prev => [...prev, { role: MessageRole.MODEL, text: fallbackResponse }]);
+        setMessages(prev => [...prev, { role: MessageRole.MODEL, text: "Sorry, I'm having trouble connecting right now." }]);
       }
     } catch (error) {
       console.error("Chat error:", error);
@@ -80,7 +59,7 @@ const AIChatbot: React.FC = () => {
           <div className="bg-foreground p-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
               <h3 className="text-background font-mono text-sm font-bold">AI Assistant</h3>
-              <span className={`w-2 h-2 rounded-full ${hasKey ? 'bg-green-400' : 'bg-red-400'}`} title={hasKey ? 'Online' : 'Offline - Using cached responses'}></span>
+              <span className="w-2 h-2 rounded-full bg-green-400" title="Online"></span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-gray-400 hover:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -101,7 +80,7 @@ const AIChatbot: React.FC = () => {
                 </div>
               </div>
             ))}
-            {isTyping && !messages[messages.length - 1]?.isLoading && (
+            {isTyping && (
                <div className="flex justify-start">
                   <div className="bg-surface border border-border rounded-lg p-3">
                     <div className="flex space-x-1">
