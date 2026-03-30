@@ -11,6 +11,9 @@ COPY prisma ./prisma
 # Remove node_modules to force fresh install
 RUN rm -rf node_modules
 
+# Remove cached Prisma engine to force fresh install
+RUN rm -rf node_modules/.prisma
+
 # Install all dependencies
 RUN npm install --force && \
     npm install prisma@5.22.0 @prisma/client@5.22.0 groq-sdk@0.5.0 && \
