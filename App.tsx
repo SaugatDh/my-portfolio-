@@ -7,10 +7,12 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AIChatbot from './components/AIChatbot';
+import DotPattern from './components/ui/DotPattern';
 
 function App() {
   return (
     <div className="bg-background min-h-screen text-foreground selection:bg-primary selection:text-white">
+      <DotPattern />
       <Navbar />
       <main>
         <Hero />

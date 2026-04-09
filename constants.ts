@@ -11,38 +11,83 @@ export const PROJECTS: Project[] = [
   {
     id: '1',
     title: 'Ausadhi AI',
-    description: 'An AI-powered mobile system for extracting and understanding medicine label data using OCR and NLP. Built to help users identify medication information instantly.',
+    description: 'AI-powered mobile system for medicine identification using OCR and NLP. Snap a photo to get detailed information including uses, side effects, and chemical classes.',
     image: 'https://picsum.photos/600/400?grayscale',
-    tags: ['React Native', 'Python', 'Flask', 'PaddleOCR', 'spaCy'],
+    tags: ['React Native', 'FastAPI', 'PaddleOCR', 'EasyOCR', 'spaCy', 'MySQL'],
     demoUrl: '#',
     repoUrl: 'https://github.com/SaugatDh/Ausadhi-AI',
   },
   {
     id: '2',
-    title: 'Smart Farm (IoT)',
-    description: 'Award-winning hardware project (DELTA Hackathon 2024). An automated farming system integrating sensors and data analysis for optimized agriculture.',
+    title: 'RAG Pipeline with Gemini',
+    description: 'Lightweight RAG pipeline using Google Gemini API for embeddings. Ingests text documents, generates vector embeddings, and retrieves relevant context.',
     image: 'https://picsum.photos/600/401?grayscale',
+    tags: ['Python', 'Gemini API', 'NumPy', 'scikit-learn', 'Embeddings'],
+    demoUrl: '#',
+    repoUrl: 'https://github.com/SaugatDh/Simple-RAG-with-gemini',
+  },
+  {
+    id: '3',
+    title: 'RAG with Ollama & ChromaDB',
+    description: 'Local RAG system using Ollama with nomic-embed-text for embeddings, ChromaDB for vector storage, and semantic search capabilities.',
+    image: 'https://picsum.photos/600/402?grayscale',
+    tags: ['Python', 'Ollama', 'ChromaDB', 'Nomic', 'Embeddings'],
+    demoUrl: '#',
+    repoUrl: 'https://github.com/SaugatDh/nomic_embed-with-chromadb',
+  },
+  {
+    id: '4',
+    title: 'Nepali TTS Fine-tuning',
+    description: 'Fine-tuning Speech T5 and other TTS models for generating natural Nepali speech from text for voice assistants and accessibility applications.',
+    image: 'https://picsum.photos/600/403?grayscale',
+    tags: ['Python', 'SpeechT5', 'transformers', 'torchaudio', 'HuggingFace'],
+    demoUrl: '#',
+    repoUrl: 'https://github.com/SaugatDh/Nepali-TTS-Finetuning',
+  },
+  {
+    id: '5',
+    title: 'Nepali ASR Fine-tuning',
+    description: 'Fine-tuning Wav2Vec2 and Whisper models for Nepali speech recognition. Model hosted on Hugging Face for Nepali speech-to-text conversion.',
+    image: 'https://picsum.photos/600/404?grayscale',
+    tags: ['Python', 'Wav2Vec2', 'Whisper', 'PyTorch', 'HuggingFace'],
+    demoUrl: 'https://huggingface.co/Saugat212/ASR_MODEL',
+    repoUrl: 'https://github.com/SaugatDh/Finetuning-ASR-Model',
+  },
+  {
+    id: '6',
+    title: 'NLLB Translator',
+    description: 'Fine-tuned NLLB-200 distilled model for Nepali-English translation. 600M parameters optimized for domain-specific translation tasks.',
+    image: 'https://picsum.photos/600/405?grayscale',
+    tags: ['Python', 'NLLB', 'PyTorch', 'Transformers', 'HuggingFace'],
+    demoUrl: 'https://huggingface.co/Saugat212/ne-en-nllb-model',
+    repoUrl: 'https://github.com/SaugatDh/NLLB-English-to-Nepali-translation-finetuned',
+  },
+  {
+    id: '7',
+    title: 'TTS Model Quantization',
+    description: '4-bit quantization techniques for TTS and speech models using bitsandbytes. Optimized for efficient inference on limited hardware.',
+    image: 'https://picsum.photos/600/406?grayscale',
+    tags: ['Python', 'bitsandbytes', 'LoRA', 'Parler TTS', 'Quantization'],
+    demoUrl: '#',
+    repoUrl: 'https://github.com/SaugatDh/TTS-Model-Quantization',
+  },
+  {
+    id: '8',
+    title: 'Smart Farm (IoT)',
+    description: 'Award-winning hardware project (DELTA Hackathon 2024). Automated farming system integrating sensors and data analysis for optimized agriculture.',
+    image: 'https://picsum.photos/600/407?grayscale',
     tags: ['C++', 'IoT', 'Hardware', 'Data Analysis'],
     demoUrl: '#',
     repoUrl: 'https://github.com/SaugatDh/smart-farm-',
   },
   {
-    id: '3',
-    title: 'Fine-tuned NLLB Translator',
-    description: 'A fine-tuned NLLB (No Language Left Behind) model specifically optimized for Nepali to English translation tasks, hosted on Hugging Face.',
-    image: 'https://picsum.photos/600/402?grayscale',
-    tags: ['Python', 'Hugging Face', 'PyTorch', 'Transformers'],
-    demoUrl: 'https://huggingface.co/Saugat212/ne-en-nllb-model',
-    repoUrl: 'https://huggingface.co/Saugat212/ne-en-nllb-model',
-  },
-  {
-    id: '4',
-    title: 'RAG & Vector Search Experiments',
-    description: 'Implementation of Retrieval-Augmented Generation using LangChain, ChromaDB, and Pinecone to build intelligent QA systems.',
-    image: 'https://picsum.photos/600/403?grayscale',
-    tags: ['LangChain', 'Pinecone', 'ChromaDB', 'Gemini API'],
+    id: '9',
+    title: 'Meroshop E-commerce',
+    description: 'Modern e-commerce platform with Django backend and React frontend. Features product management, shopping cart, and checkout flow.',
+    image: 'https://picsum.photos/600/408?grayscale',
+    tags: ['Django', 'DRF', 'React', 'Vite', 'Tailwind CSS', 'SQLite'],
     demoUrl: '#',
-    repoUrl: 'https://github.com/SaugatDh',
+    repoUrl: 'https://github.com/SaugatDh/Meroshop-Ecommerce-Django',
   }
 ];
 
@@ -184,10 +229,15 @@ export const FAQ_ANSWERS: Record<string, string> = {
   
   projects: `Saugat has built several projects:
 
-1. Ausadhi AI - AI-powered medicine label extraction using OCR and NLP
-2. Smart Farm (IoT) - Award-winning automated farming system (DELTA Hackathon 2024)
-3. Fine-tuned NLLB Translator - Nepali to English translation model on Hugging Face
-4. RAG & Vector Search - Retrieval-Augmented Generation experiments with LangChain and Pinecone`,
+1. Ausadhi AI - AI-powered medicine identification using OCR and NLP
+2. RAG Pipeline with Gemini - Lightweight RAG using Gemini API embeddings
+3. RAG with Ollama & ChromaDB - Local RAG with nomic-embed-text
+4. Nepali TTS Fine-tuning - Speech T5 for Nepali speech generation
+5. Nepali ASR Fine-tuning - Wav2Vec2 and Whisper for Nepali speech-to-text
+6. NLLB Translator - Nepali-English translation model on Hugging Face
+7. TTS Model Quantization - 4-bit quantization for TTS models
+8. Smart Farm (IoT) - Award-winning automated farming system
+9. Meroshop E-commerce - Django + React e-commerce platform`,
   
   experience: `Saugat's experience includes:
 
