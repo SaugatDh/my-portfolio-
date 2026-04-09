@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ThemeToggle from './ThemeToggle';
 import { useScrollTo } from '../hooks/useScrollTo';
 
 const Navbar: React.FC = () => {
@@ -70,8 +69,6 @@ const Navbar: React.FC = () => {
               </button>
             </div>
             
-            <ThemeToggle />
-
             <button 
               className="md:hidden p-2 text-foreground"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
