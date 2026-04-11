@@ -36,15 +36,6 @@ export const PROJECTS: Project[] = [
     repoUrl: 'https://github.com/SaugatDh/nomic_embed-with-chromadb',
   },
   {
-    id: '4',
-    title: 'Nepali TTS Fine-tuning',
-    description: 'Fine-tuning Speech T5 and other TTS models for generating natural Nepali speech from text for voice assistants and accessibility applications.',
-    image: 'https://picsum.photos/600/403?grayscale',
-    tags: ['Python', 'SpeechT5', 'transformers', 'torchaudio', 'HuggingFace'],
-    demoUrl: '#',
-    repoUrl: 'https://github.com/SaugatDh/Nepali-TTS-Finetuning',
-  },
-  {
     id: '5',
     title: 'Nepali ASR Fine-tuning',
     description: 'Fine-tuning Wav2Vec2 and Whisper models for Nepali speech recognition. Model hosted on Hugging Face for Nepali speech-to-text conversion.',
@@ -64,15 +55,6 @@ export const PROJECTS: Project[] = [
   },
   {
     id: '7',
-    title: 'TTS Model Quantization',
-    description: '4-bit quantization techniques for TTS and speech models using bitsandbytes. Optimized for efficient inference on limited hardware.',
-    image: 'https://picsum.photos/600/406?grayscale',
-    tags: ['Python', 'bitsandbytes', 'LoRA', 'Parler TTS', 'Quantization'],
-    demoUrl: '#',
-    repoUrl: 'https://github.com/SaugatDh/TTS-Model-Quantization',
-  },
-  {
-    id: '8',
     title: 'Smart Farm (IoT)',
     description: 'Award-winning hardware project (DELTA Hackathon 2024). Automated farming system integrating sensors and data analysis for optimized agriculture.',
     image: 'https://picsum.photos/600/407?grayscale',
